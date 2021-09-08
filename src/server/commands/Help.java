@@ -1,0 +1,37 @@
+package server.commands;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Help implements Commandable, Serializable{
+
+    private final List<Commandable> commandsAvailable;
+
+
+    public Help(List<Commandable> commandsAvailable) {
+        this.commandsAvailable = commandsAvailable;
+        commandsAvailable.add(0, this);
+    }
+
+    @Override
+    public ArrayList<String> execute(String argument) {
+        ArrayList<String> helpCommand = new ArrayList<>();
+        StringBuilder res = new StringBuilder();
+        for (Commandable commandable : commandsAvailable) {
+            res.append(commandable.getName()).append(" - ").append(commandable.getDescription()).append("\n");
+        }
+        helpCommand.add(res.toString());
+        helpCommand.add("\ncommand help executed\n");
+        return helpCommand;
+    }
+
+    @Override
+    public String getDescription() {
+        return " display help for available server.models.lib.commands\n";
+    }
+
+    public List<Commandable> getCommandsAvailable() {
+        return commandsAvailable;
+    }
+}
