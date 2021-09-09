@@ -1,10 +1,9 @@
 package server.commands;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Help implements Commandable, Serializable{
+public class Help extends AbstractCommand {
 
     private final List<Commandable> commandsAvailable;
 

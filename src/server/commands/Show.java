@@ -4,7 +4,7 @@ import server.lib.CollectionManager;
 
 import java.util.ArrayList;
 
-public class Show implements Commandable {
+public class Show extends AbstractCommand {
     CollectionManager collectionManager;
 
     public Show(CollectionManager collectionManager) {

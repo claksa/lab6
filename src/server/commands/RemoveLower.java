@@ -6,7 +6,7 @@ import server.models.Ticket;
 
 import java.util.ArrayList;
 
-public class RemoveLower implements Commandable {
+public class RemoveLower extends AbstractCommand {
     private final CollectionManager collectionManager;
     private final Validator validator;
 

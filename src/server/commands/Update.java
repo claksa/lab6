@@ -8,9 +8,7 @@ import server.models.Ticket;
 
 import java.util.ArrayList;
 
-import static client.Reader.PrintErr;
-
-public class Update implements Commandable {
+public class Update extends AbstractCommand {
     private final CollectionManager collectionManager;
     private final Validator validator;
 

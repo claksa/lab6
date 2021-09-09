@@ -1,5 +1,7 @@
 package server.serverside;
 
+import client.CommandNet;
+import client.Wrapper;
 import server.commands.Commandable;
 import server.commands.Executor;
 
@@ -16,7 +18,7 @@ import java.util.Set;
 // объект класса управляет полученными данными от клиента; выполняет полученную команду и сразу отправляет результат
 public class DataManager {
      Selector selector;
-     Commandable receivedCommand;
+     CommandNet receivedCommand;
 
     public void manageData() {
 
@@ -64,16 +66,17 @@ public class DataManager {
         channel.configureBlocking(false);
         DataHolder dataHolder = (DataHolder) key.attachment();
         dataHolder.getBuffer().flip();
-        Commandable receivedCommand = dataHolder.getReceivedCommand();
+        CommandNet receivedCommand = dataHolder.getReceivedCommand();
+        Wrapper wrapper = new Wrapper();
+
         try(ByteArrayOutputStream out = new ByteArrayOutputStream();
             ObjectOutputStream oos = new ObjectOutputStream(out)){
-            Answer answer = new Executor().execute(receivedCommand);
+            Answer answer = new Executor().execute(wrapper.getWrappedCommand(receivedCommand));
             oos.writeObject(answer);
             byte[] b = new byte[65536];
             ByteBuffer buff = ByteBuffer.wrap(b);
             channel.send(buff, dataHolder.getClientAdr());
         }
-
     }
 
 }

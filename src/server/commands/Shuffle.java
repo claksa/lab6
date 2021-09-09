@@ -5,7 +5,7 @@ import server.lib.CollectionManager;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Shuffle implements Commandable {
+public class Shuffle extends AbstractCommand {
     private final CollectionManager collectionManager;
 
     public Shuffle(CollectionManager collectionManager) {

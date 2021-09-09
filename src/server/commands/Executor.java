@@ -2,6 +2,7 @@ package server.commands;
 
 import bridge.Message;
 import client.Client;
+import client.CommandNet;
 import client.Wrapper;
 import server.exceptions.NoSuchCommandException;
 import server.lib.FileManager;
@@ -22,7 +23,6 @@ public class Executor implements Serializable {
     Message infoToClient;
     Scanner scanner;
     private final List<String> script;
-    boolean isCommand;
 
     {
         script = new ArrayList<>();
@@ -57,7 +57,7 @@ public class Executor implements Serializable {
                 }
             } else if (!cmd[0].trim().equals("")) {
                 boolean isFindCommand = false;
-                for (Commandable commandable : Client.getWrapper().getCmdList()) {
+                for (Commandable commandable : Client.getEntrance().getCmdList()) {
                     if (cmd[0].trim().equals(commandable.getName())) {
                         if (commandable.getName().trim().equals("add")) {
                             ChangeScanner(scriptManager.getScriptReader());
@@ -83,14 +83,14 @@ public class Executor implements Serializable {
         }
     }
 
-//    не забыть про коннект. обработать выше, чтобы команда в этот метод не заходила.
-    public Answer execute (Commandable receivedCommand){
+    //    не забыть про коннект. обработать выше, чтобы команда в этот метод не заходила.
+    public  Answer execute (Commandable receivedCommand){
         Answer answer = null;
         if (receivedCommand!=null){
-            for (Commandable listCommand: Client.getWrapper().getCmdList()){
+            for (Commandable listCommand: Client.getEntrance().getCmdList()){
                 if (receivedCommand.getName().equals(listCommand.getName())){
                     PrintMsg("it is a right command");
-                    answer = new Answer(receivedCommand.execute(Client.getWrapper().getArgument()));
+                    answer = new Answer(receivedCommand.execute(new Wrapper().getArgument()));
                     break;
                 }
             }
@@ -105,7 +105,7 @@ public class Executor implements Serializable {
         String[] command = (cmd.trim() + " ").split(" ", 2);
         Message infoToClient = new Message("");
           if (!command[0].trim().equals("")) {
-            for (Commandable each : Client.getWrapper().getCmdList()) {
+            for (Commandable each : Client.getEntrance().getCmdList()) {
                 if (command[0].trim().equals(each.getName())) {
                     infoToClient = new Message("you entered a right command");
                     each.execute(command[1]);
@@ -117,22 +117,6 @@ public class Executor implements Serializable {
         PrintMsg("command was executed");
         return infoToClient;
     }
-
-    public boolean isCommand(String[] cmd) {
-        if (!cmd[0].trim().equals("")) {
-            for (Commandable eachCommand : Client.getWrapper().getCmdList()) {
-                if (cmd[0].trim().equals(eachCommand.getName()) | cmd[0].trim().equals("execute_script")) {
-                    infoToClient = new Message("you entered a right command");
-                    isCommand = true;
-                    break;
-                } else {
-                    isCommand = false;
-                }
-            }
-        }
-        return isCommand;
-    }
-
 
     public Message getInfoToClient() {
         return infoToClient;

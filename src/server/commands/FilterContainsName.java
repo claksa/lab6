@@ -3,10 +3,9 @@ package server.commands;
 import server.exceptions.EmptyIOException;
 import server.lib.CollectionManager;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class FilterContainsName implements Commandable {
+public class FilterContainsName extends AbstractCommand {
     private final CollectionManager collectionManager;
 
     public FilterContainsName(CollectionManager collectionManager) {

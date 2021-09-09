@@ -4,10 +4,9 @@ import client.Reader;
 import server.lib.CollectionManager;
 import server.serverside.Server;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Exit implements Commandable {
+public class Exit extends AbstractCommand {
     private final CollectionManager collectionManager;
 
     public Exit(CollectionManager collectionManager) {

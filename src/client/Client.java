@@ -12,7 +12,8 @@ public class Client {
     InetAddress address;
     SocketAddress serverAdr = new InetSocketAddress("localhost", 9000);
     DatagramSocket socket;
-    public static Wrapper wrapper;
+    static StorageEntrance entrance;
+
     Scanner scanner;
     boolean isConnected = true;
     boolean isEstablishedConnectionWithServer;
@@ -20,7 +21,7 @@ public class Client {
 
     public Client() {
         Reader.PrintMsg("client started");
-        wrapper = new Wrapper();
+        entrance = new StorageEntrance();
         scanner = new Scanner(System.in);
         try {
             address = InetAddress.getByName("localhost");
@@ -37,9 +38,12 @@ public class Client {
                 Reader.PrintMsg("client was successfully connected");
                 continue;
             }
-            String message = scanner.nextLine();
+            String line = scanner.nextLine();
+            String[] message = (line.trim() + " ").split(" ",2);
             playConsole(message);
-            send(wrapper.getWrappedCommand(message));
+//            plan: send (CommandNet command(String enteredMessage)) --> server: new CommandNet().getWrapperObject().getWrapperCommand()
+//            send(CommandNet.getWrapper().getWrappedCommand(message));
+            send(new CommandNet(message));
         }
     }
 
@@ -62,8 +66,9 @@ public class Client {
             socket = new DatagramSocket();
             Reader.PrintMsg("client connected to socket " + socket);
             socket.connect(serverAdr);
-            String connect = "connect";
-            send(wrapper.getWrappedCommand(connect));
+            String[] connect = {"connect"};
+            send(new CommandNet(connect));
+//            send(CommandNet.getWrapper());
             isConnected = true;
         } catch (SocketException e) {
             Reader.PrintErr("socket connection");
@@ -71,7 +76,7 @@ public class Client {
         }
     }
 
-    public void send(Commandable object) {
+    public void send(CommandNet object) {
         try (ByteArrayOutputStream out = new ByteArrayOutputStream();
              ObjectOutputStream oos = new ObjectOutputStream(out);) {
             oos.writeObject(object);
@@ -111,28 +116,28 @@ public class Client {
     }
 
     //    запустить когда на клиенте будет введена команда работающая с коллекцией
-    public void playConsole(String cmd) {
-        String[] command = (cmd.trim() + " ").split(" ", 2);
+    public void playConsole(String[] command) {
+//        String[] command = (cmd.trim() + " ").split(" ", 2);
         if (!(command[0].trim().equals("") | command[1].trim().equals(""))) {
-            for (Commandable eachCommand : wrapper.getCmdList()) {
+            for (Commandable eachCommand : entrance.getCmdList()) {
                 if (command[0].trim().equals(eachCommand.getName())) {
                     if (!command[0].trim().equals("connect")) {
 
                         if (command[0].trim().equals("add") | command[0].trim().equals("update")) {
-                            wrapper.getStorage().getValidator().setId();
+                            entrance.getStorage().getValidator().setId();
                         }
-                        wrapper.getStorage().getValidator().setTicket();
+                        entrance.getStorage().getValidator().setTicket();
                     }
                 }
             }
         }
     }
 
-    boolean isConnected() {
-        return isConnected;
+    public static StorageEntrance getEntrance() {
+        return entrance;
     }
 
-    public static Wrapper getWrapper() {
-        return wrapper;
+    boolean isConnected() {
+        return isConnected;
     }
 }

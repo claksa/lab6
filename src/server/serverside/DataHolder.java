@@ -1,5 +1,6 @@
 package server.serverside;
 
+import client.CommandNet;
 import client.Reader;
 import server.commands.Commandable;
 
@@ -16,12 +17,13 @@ public class DataHolder {
     private SocketAddress clientAdr;
     ByteBuffer buffer = ByteBuffer.wrap(b);
 
-   public Commandable getReceivedCommand() throws ClassNotFoundException {
-       Commandable command = null;
+   public CommandNet getReceivedCommand() throws ClassNotFoundException {
+       CommandNet command = null;
        try(ByteArrayInputStream in = new ByteArrayInputStream(b);
            ObjectInputStream ois = new ObjectInputStream(in)){
-           command = (Commandable) ois.readObject();
-           if (command.getName().equals("connect")){
+           command = (CommandNet) ois.readObject();
+           System.out.println(" Server received CommandNet Object!");
+           if (command.getEnteredCommand()[0].equals("connect")){
                isEstablishedConnection = true;
            }
 

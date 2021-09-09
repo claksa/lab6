@@ -2,10 +2,9 @@ package server.commands;
 
 import server.lib.CollectionManager;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class GroupCountByType implements Commandable {
+public class GroupCountByType extends AbstractCommand {
     private final CollectionManager collectionManager;
 
 

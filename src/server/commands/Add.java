@@ -7,7 +7,7 @@ import server.models.Ticket;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Add implements Commandable {
+public class Add extends AbstractCommand implements Serializable {
     private final CollectionManager collectionManager;
     private final Validator validator;
 

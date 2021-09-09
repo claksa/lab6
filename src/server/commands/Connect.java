@@ -1,9 +1,8 @@
 package server.commands;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Connect implements Commandable {
+public class Connect extends AbstractCommand {
 
     @Override
     public String getDescription() {

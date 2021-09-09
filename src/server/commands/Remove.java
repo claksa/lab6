@@ -7,7 +7,7 @@ import server.lib.CollectionManager;
 
 import java.util.ArrayList;
 
-public class Remove implements Commandable {
+public class Remove extends AbstractCommand {
     private final CollectionManager collectionManager;
     private final Validator validator;
 

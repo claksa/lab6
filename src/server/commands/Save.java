@@ -4,7 +4,7 @@ import server.lib.CollectionManager;
 
 import java.util.ArrayList;
 
-public class Save implements Commandable {
+public class Save extends AbstractCommand {
     private final CollectionManager collectionManager;
 
     public Save(CollectionManager collectionManager){

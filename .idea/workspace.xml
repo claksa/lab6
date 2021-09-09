@@ -1,7 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c4480a7b-0c38-4b1f-81b4-dee83cdcd232" name="Default Changelist" comment="first commit" />
+    <list default="true" id="c4480a7b-0c38-4b1f-81b4-dee83cdcd232" name="Default Changelist" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/src/client/CommandNet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/StorageEntrance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/commands/AbstractCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/client/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/Client$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/client/Wrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/Wrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Add.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Add.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/AddMin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/AddMin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Clear.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Clear.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Commandable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Commandable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Connect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Connect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/ExecuteScript.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/ExecuteScript.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Executor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Executor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Exit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Exit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/FilterContainsName.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/FilterContainsName.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/FilterStartsWithName.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/FilterStartsWithName.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/GroupCountByType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/GroupCountByType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Help.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Help.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Info.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Remove.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Remove.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/RemoveLower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/RemoveLower.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Save.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Save.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Show.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Show.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Shuffle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Shuffle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Update.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerConsole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/Wrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Wrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Add.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/AddMin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/AddMin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Clear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Clear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Commandable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Commandable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Connect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Connect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/ExecuteScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/ExecuteScript.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Executor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Exit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/FilterContainsName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/FilterContainsName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/FilterStartsWithName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/FilterStartsWithName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/GroupCountByType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/GroupCountByType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Help.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Remove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Remove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/RemoveLower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/RemoveLower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Show.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Shuffle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Shuffle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/serverside/DataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/DataHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/serverside/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/DataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/serverside/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/serverside/ServerConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/ServerConsole.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,7 +107,7 @@
       <module name="lab6" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="client.*" />
+          <option name="PATTERN" value="server.commands.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,10 +167,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientPoint" />
         <item itemvalue="Application.ServerPoint" />
+        <item itemvalue="Application.ClientPoint" />
         <item itemvalue="Application.Practice" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
@@ -145,7 +212,7 @@
       <workItem from="1630901271058" duration="3103000" />
       <workItem from="1630911429119" duration="65785000" />
       <workItem from="1631120649197" duration="159000" />
-      <workItem from="1631120836456" duration="441000" />
+      <workItem from="1631120836456" duration="15529000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1631120411977</created>
@@ -196,34 +263,29 @@
           <option name="timeStamp" value="6" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/client/Wrapper.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="30" />
+          <url>file://$PROJECT_DIR$/src/client/Client.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/client/Client.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="36" />
+          <line>45</line>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/client/Client.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="37" />
+          <line>84</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/client/Wrapper.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="38" />
+          <url>file://$PROJECT_DIR$/src/server/serverside/DataHolder.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/client/Client.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/client/Client.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="45" />
+          <url>file://$PROJECT_DIR$/src/server/serverside/Server.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

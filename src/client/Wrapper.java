@@ -1,5 +1,6 @@
 package client;
 
+import server.commands.AbstractCommand;
 import server.commands.Commandable;
 import server.lib.FileManager;
 import server.lib.StorageForCommands;
@@ -9,25 +10,23 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Wrapper implements Serializable {
-    Commandable command;
+    AbstractCommand command;
     String argument;
 
-    List<Commandable> cmdList;
-    StorageForCommands storage;
 
     public Wrapper() {
-        storage = new StorageForCommands();
-        cmdList = storage.getCommandsList(new FileManager(), new Scanner(System.in));
     }
 
+//    надо получить из CommandNet AbstractCommand для выполнения
+//    из CommandNet вытащить массив из аргумента и команды
 //    важно: доступ только у клиента!
-    Commandable getWrappedCommand(String cmd) {
-        String[] command = (cmd.trim() + " ").split(" ", 2);
+    public AbstractCommand getWrappedCommand(CommandNet cmd) {
+        String[] command = cmd.getEnteredCommand();
         argument = command[1];
-        for (Commandable each : cmdList) {
+        for (Commandable each : Client.entrance.getCmdList()) {
             if (!command[0].equals("")) {
                 if (command[0].equals(each.getName()) | command[0].equals("execute_script")) {
-                    this.command = each;
+                    this.command = (AbstractCommand) each;
                 }
             }
         }
@@ -35,7 +34,7 @@ public class Wrapper implements Serializable {
     }
 
 //    важно: доступ только у клиента!
-    Commandable getCommand() {
+    AbstractCommand getCommand() {
         return command;
     }
 
@@ -43,11 +42,4 @@ public class Wrapper implements Serializable {
         return argument;
     }
 
-    public List<Commandable> getCmdList() {
-        return cmdList;
-    }
-
-    public StorageForCommands getStorage() {
-        return storage;
-    }
 }

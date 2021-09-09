@@ -1,15 +1,13 @@
 package server.commands;
 
-import client.Reader;
 import server.exceptions.LackOfAccessException;
 import server.exceptions.NoSuchCommandException;
 
-import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class ExecuteScript implements Commandable {
+public class ExecuteScript extends AbstractCommand {
     Executor executor;
     static ArrayList<String> executeScriptCommand;
 

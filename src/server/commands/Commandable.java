@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * interface with methods that implement command classes
  */
-public interface Commandable extends Serializable {
+public interface Commandable  {
     String getDescription();
     ArrayList<String> execute (String argument);
 

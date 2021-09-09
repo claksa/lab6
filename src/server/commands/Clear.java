@@ -2,10 +2,9 @@ package server.commands;
 
 import server.lib.CollectionManager;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Clear implements Commandable {
+public class Clear extends AbstractCommand {
     private final CollectionManager collectionManager;
 
     public Clear(CollectionManager collectionManager) {

@@ -4,10 +4,9 @@ import client.Validator;
 import server.lib.CollectionManager;
 import server.models.Ticket;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class AddMin implements Commandable {
+public class AddMin extends AbstractCommand {
     private final CollectionManager collectionManager;
     private final Validator validator;
 

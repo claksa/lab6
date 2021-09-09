@@ -41,4 +41,8 @@ public class Server {
     public static Selector getSelector() {
         return selector;
     }
+
+    public static void stop(){
+        running = false;
+    }
 }

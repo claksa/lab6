@@ -4,17 +4,12 @@ import server.lib.CollectionManager;
 
 import java.util.ArrayList;
 
-public class Info implements Commandable {
+public class Info extends AbstractCommand {
     private final CollectionManager collectionManager;
 
     public Info(CollectionManager collectionManager){
         this.collectionManager = collectionManager;
     }
-
-    /**
-     * execute info command
-     * @return
-     */
 
     @Override
     public ArrayList<String> execute(String argument) {
