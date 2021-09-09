@@ -2,6 +2,7 @@ package server.commands;
 
 import server.exceptions.LackOfAccessException;
 import server.exceptions.NoSuchCommandException;
+import server.lib.StorageEntrance;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -40,6 +41,7 @@ public class ExecuteScript extends AbstractCommand {
         }
         return executeScriptCommand;
     }
+
     public static ArrayList<String> getExecuteScriptCommand() {
         return executeScriptCommand;
     }

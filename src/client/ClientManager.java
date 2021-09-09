@@ -2,7 +2,7 @@ package client;
 
 import server.commands.Commandable;
 import server.lib.FileManager;
-import server.lib.StorageForCommands;
+import server.lib.Commander;
 
 import java.io.*;
 import java.net.*;
@@ -16,14 +16,14 @@ public class ClientManager {
     InetAddress address;
     String message;
     List<Commandable> list;
-    StorageForCommands commands;
+    Commander commands;
 
 
     public ClientManager() {
         Reader.PrintMsg("client started");
         scanner = new Scanner(System.in);
-        commands = new StorageForCommands();
-        list = commands.getCommandsList(new FileManager(), scanner);
+        commands = new Commander();
+        list = commands.getCommandsList(new FileManager(),scanner);
 
         try {
             address = InetAddress.getByName("localhost");

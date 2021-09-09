@@ -1,12 +1,8 @@
 package client;
 
-import server.commands.Commandable;
-import server.lib.FileManager;
-import server.lib.StorageForCommands;
 import server.models.*;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleManager extends Reader {

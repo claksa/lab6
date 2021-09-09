@@ -1,13 +1,7 @@
 package client;
 
-import server.commands.Commandable;
-import server.exceptions.NoSuchCommandException;
-import server.lib.FileManager;
-import server.lib.StorageForCommands;
-
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.Scanner;
 
 public class Reader {

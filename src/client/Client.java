@@ -1,10 +1,16 @@
 package client;
 
 import server.commands.Commandable;
+import server.lib.Commander;
+import server.lib.CommanderHolder;
+import server.lib.FileManager;
+import server.lib.StorageEntrance;
 import server.serverside.Answer;
 
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -12,7 +18,6 @@ public class Client {
     InetAddress address;
     SocketAddress serverAdr = new InetSocketAddress("localhost", 9000);
     DatagramSocket socket;
-    static StorageEntrance entrance;
 
     Scanner scanner;
     boolean isConnected = true;
@@ -21,7 +26,7 @@ public class Client {
 
     public Client() {
         Reader.PrintMsg("client started");
-        entrance = new StorageEntrance();
+        CommanderHolder commander = new CommanderHolder();
         scanner = new Scanner(System.in);
         try {
             address = InetAddress.getByName("localhost");
@@ -48,7 +53,7 @@ public class Client {
     }
 
     //   инициализирует работу клиента
-    public boolean startClient() {
+    public void startClient() {
         if (isConnected && isStarted) {
             Reader.PrintMsg("the client has already connected to server");
         } else {
@@ -57,7 +62,6 @@ public class Client {
             isConnected = true;
             isStarted = true;
         }
-        return isConnected;
     }
 
     //    точка создания сокета и начало соединения с сервером
@@ -66,7 +70,7 @@ public class Client {
             socket = new DatagramSocket();
             Reader.PrintMsg("client connected to socket " + socket);
             socket.connect(serverAdr);
-            String[] connect = {"connect"};
+            String[] connect = {"connect"," "};
             send(new CommandNet(connect));
 //            send(CommandNet.getWrapper());
             isConnected = true;
@@ -119,25 +123,22 @@ public class Client {
     public void playConsole(String[] command) {
 //        String[] command = (cmd.trim() + " ").split(" ", 2);
         if (!(command[0].trim().equals("") | command[1].trim().equals(""))) {
-            for (Commandable eachCommand : entrance.getCmdList()) {
+            for (Commandable eachCommand : CommanderHolder.getCmdList()) {
                 if (command[0].trim().equals(eachCommand.getName())) {
                     if (!command[0].trim().equals("connect")) {
 
                         if (command[0].trim().equals("add") | command[0].trim().equals("update")) {
-                            entrance.getStorage().getValidator().setId();
+                            CommanderHolder.getCommander().getValidator().setId();
                         }
-                        entrance.getStorage().getValidator().setTicket();
+                        CommanderHolder.getCommander().getValidator().setTicket();
                     }
                 }
             }
         }
     }
 
-    public static StorageEntrance getEntrance() {
-        return entrance;
-    }
-
     boolean isConnected() {
         return isConnected;
     }
+
 }

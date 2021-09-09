@@ -8,16 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class StorageForCommands {
-    List<Commandable> commandsList;
+public class Commander {
+    protected List<Commandable> commandsList;
     Validator validator;
 
 
-    public StorageForCommands(){
+    public Commander(){
         commandsList = new ArrayList<>();
     }
 
-    public List<Commandable> getCommandsList(FileManager fileManager, Scanner scanner){
+    public List<Commandable> getCommandsList(FileManager fileManager,Scanner scanner){
         CollectionManager collectionManager = new CollectionManager(fileManager);
         ConsoleManager consoleManager = new ConsoleManager(scanner);
         validator = new Validator(consoleManager);

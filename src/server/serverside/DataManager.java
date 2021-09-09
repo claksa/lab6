@@ -1,8 +1,7 @@
 package server.serverside;
 
 import client.CommandNet;
-import client.Wrapper;
-import server.commands.Commandable;
+import server.lib.Wrapper;
 import server.commands.Executor;
 
 import java.io.ByteArrayOutputStream;
@@ -17,13 +16,13 @@ import java.util.Set;
 
 // объект класса управляет полученными данными от клиента; выполняет полученную команду и сразу отправляет результат
 public class DataManager {
-     Selector selector;
-     CommandNet receivedCommand;
+    Selector selector;
+    CommandNet receivedCommand;
 
     public void manageData() {
 
         selector = Server.getSelector();
-        while (Server.isRunning()){
+        while (Server.isRunning()) {
             try {
                 selector.select();
                 Set<SelectionKey> selectedKeys = selector.selectedKeys();
@@ -33,8 +32,7 @@ public class DataManager {
                     if (key.isValid()) {
                         if (key.isReadable()) {
                             receiveData(key);
-                        }
-                        else if (key.isWritable()) {
+                        } else if (key.isWritable()) {
                             requestData(key);
                         }
                     }
@@ -46,7 +44,7 @@ public class DataManager {
         }
     }
 
-//    получаем (читаем) данные у клиента
+    //    получаем (читаем) данные у клиента
     public void receiveData(SelectionKey key) throws IOException {
         DatagramChannel channel = (DatagramChannel) key.channel();
         channel.configureBlocking(false);
@@ -58,9 +56,12 @@ public class DataManager {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        if (data.getClientAdr() != null) {
+            key.interestOps(SelectionKey.OP_WRITE);
+        }
     }
 
-//    отправляем данные клиенту (отправляем результат выполненных команд)
+    //    отправляем данные клиенту (отправляем результат выполненных команд)
     public void requestData(SelectionKey key) throws IOException, ClassNotFoundException {
         DatagramChannel channel = (DatagramChannel) key.channel();
         channel.configureBlocking(false);
@@ -69,8 +70,8 @@ public class DataManager {
         CommandNet receivedCommand = dataHolder.getReceivedCommand();
         Wrapper wrapper = new Wrapper();
 
-        try(ByteArrayOutputStream out = new ByteArrayOutputStream();
-            ObjectOutputStream oos = new ObjectOutputStream(out)){
+        try (ByteArrayOutputStream out = new ByteArrayOutputStream();
+             ObjectOutputStream oos = new ObjectOutputStream(out)) {
             Answer answer = new Executor().execute(wrapper.getWrappedCommand(receivedCommand));
             oos.writeObject(answer);
             byte[] b = new byte[65536];
@@ -78,5 +79,4 @@ public class DataManager {
             channel.send(buff, dataHolder.getClientAdr());
         }
     }
-
 }

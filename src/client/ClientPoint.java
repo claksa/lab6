@@ -1,5 +1,7 @@
 package client;
 
+import server.lib.StorageEntrance;
+
 import javax.print.attribute.standard.PrinterResolution;
 import java.io.IOException;
 import java.net.UnknownHostException;

@@ -19,9 +19,8 @@ public class ServerConsole implements Runnable {
 
     @Override
     public void run() {
-        Reader.PrintMsg("server console started.\nPlease, enter help to read about available commands");
-        Reader.PrintMsg("if you do not want to work with the server console, please enter the space bar :)");
         Scanner scanner = new Scanner(System.in);
+        Reader.PrintMsg("server console started");
         String enteredCommand = null;
         while (Server.isRunning()) {
             try {
