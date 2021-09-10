@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
+import java.nio.channels.DatagramChannel;
 
 // объект класса хранит полученные данные (команды)  от клиента и немножко контролирует подключение
 public class DataHolder {
@@ -16,6 +17,7 @@ public class DataHolder {
     private final byte[] b = new byte[65536];
     private SocketAddress clientAdr;
     ByteBuffer buffer = ByteBuffer.wrap(b);
+    DatagramChannel channel = null;
 
    public CommandNet getReceivedCommand() throws ClassNotFoundException {
        CommandNet command = null;

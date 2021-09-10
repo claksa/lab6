@@ -11,13 +11,13 @@ import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 // объект класса управляет полученными данными от клиента; выполняет полученную команду и сразу отправляет результат
 public class DataManager {
     Selector selector;
     CommandNet receivedCommand;
+    LinkedList<DataHolder> queue = new LinkedList<>();
 
     public void manageData() {
 
@@ -29,14 +29,20 @@ public class DataManager {
                 Iterator<SelectionKey> keyIterator = selectedKeys.iterator();
                 while (keyIterator.hasNext()) {
                     SelectionKey key = keyIterator.next();
+                    keyIterator.remove();
                     if (key.isValid()) {
                         if (key.isReadable()) {
                             receiveData(key);
-                        } else if (key.isWritable()) {
-                            requestData(key);
                         }
+//                        } else if (key.isWritable() && inProgress.contains(key)) {
+//                            requestData(key);
+//                            inProgress.remove(key);
+//                        }
                     }
-                    keyIterator.remove();
+                }
+                while (!queue.isEmpty()) {
+                    System.out.println(queue.size());
+                    requestData(queue.poll());
                 }
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
@@ -50,6 +56,7 @@ public class DataManager {
         channel.configureBlocking(false);
         DataHolder data = (DataHolder) key.attachment();
         data.getBuffer().clear();
+        data.channel = channel;
         data.setClientAdr(channel.receive(data.getBuffer())); //получили данные у клиента и адрес клиента с которого они пришли
         try {
             receivedCommand = data.getReceivedCommand();
@@ -59,13 +66,11 @@ public class DataManager {
         if (data.getClientAdr() != null) {
             key.interestOps(SelectionKey.OP_WRITE);
         }
+        queue.add(data);
     }
 
     //    отправляем данные клиенту (отправляем результат выполненных команд)
-    public void requestData(SelectionKey key) throws IOException, ClassNotFoundException {
-        DatagramChannel channel = (DatagramChannel) key.channel();
-        channel.configureBlocking(false);
-        DataHolder dataHolder = (DataHolder) key.attachment();
+    public void requestData(DataHolder dataHolder) throws IOException, ClassNotFoundException {
         dataHolder.getBuffer().flip();
         CommandNet receivedCommand = dataHolder.getReceivedCommand();
         Wrapper wrapper = new Wrapper();
@@ -74,9 +79,9 @@ public class DataManager {
              ObjectOutputStream oos = new ObjectOutputStream(out)) {
             Answer answer = new Executor().execute(wrapper.getWrappedCommand(receivedCommand));
             oos.writeObject(answer);
-            byte[] b = new byte[65536];
+            byte[] b =out.toByteArray();
             ByteBuffer buff = ByteBuffer.wrap(b);
-            channel.send(buff, dataHolder.getClientAdr());
+            dataHolder.channel.send(buff, dataHolder.getClientAdr());
         }
     }
 }

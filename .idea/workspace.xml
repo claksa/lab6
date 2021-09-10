@@ -2,39 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4480a7b-0c38-4b1f-81b4-dee83cdcd232" name="Default Changelist" comment="commit suicide">
-      <change afterPath="$PROJECT_DIR$/src/server/lib/CommanderHolder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/client/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/Client$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/client/ClientManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/ClientManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/client/ClientPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/ClientPoint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/client/ConsoleManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/ConsoleManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/client/Reader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/Reader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/client/Wrapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/ExecuteScript.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/ExecuteScript.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Executor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Executor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/lib/StorageForCommands.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerConsole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerPoint.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ClientPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ConsoleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ConsoleManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Reader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/StorageEntrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/lib/StorageEntrance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/Wrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/lib/Wrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/commands/AbstractCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/AbstractCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/commands/ExecuteScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/ExecuteScript.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/commands/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Executor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/lib/StorageForCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/lib/Commander.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/serverside/DataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/DataHolder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/serverside/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/DataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/serverside/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/serverside/ServerConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/ServerConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/serverside/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/ServerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/serverside/ServerPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/ServerPoint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +52,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager" selected="Application.ClientPoint">
+  <component name="RunManager" selected="Application.ServerPoint">
     <configuration name="ClientPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.ClientPoint" />
       <module name="lab6" />
@@ -193,7 +166,7 @@
       <workItem from="1630911429119" duration="65785000" />
       <workItem from="1631120649197" duration="159000" />
       <workItem from="1631120836456" duration="27640000" />
-      <workItem from="1631216496505" duration="6285000" />
+      <workItem from="1631216496505" duration="8593000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1631120411977</created>
@@ -209,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631183444213</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="commit suicide">
+      <created>1631222860176</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1631222860176</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,18 +233,38 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/server/serverside/DataManager.java</url>
-          <line>33</line>
+          <line>34</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/server/serverside/DataManager.java</url>
-          <line>35</line>
+          <line>37</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/server/lib/Wrapper.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/server/commands/Executor.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/server/commands/Executor.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/server/commands/Executor.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/server/serverside/DataManager.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="20" />
+          <line>83</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
