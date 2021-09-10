@@ -22,9 +22,9 @@ public class DataManager {
     public void manageData() {
 
         selector = Server.getSelector();
-        while (Server.isRunning()) {
+        while (Server.running) {
             try {
-                selector.select();
+                selector.select(50);
                 Set<SelectionKey> selectedKeys = selector.selectedKeys();
                 Iterator<SelectionKey> keyIterator = selectedKeys.iterator();
                 while (keyIterator.hasNext()) {
@@ -52,14 +52,15 @@ public class DataManager {
 
     //    получаем (читаем) данные у клиента
     public void receiveData(SelectionKey key) throws IOException {
-        DatagramChannel channel = (DatagramChannel) key.channel();
-        channel.configureBlocking(false);
+        System.out.println("IN RECEIVE");
         DataHolder data = (DataHolder) key.attachment();
+        data.channel = (DatagramChannel) key.channel();
+        data.channel.configureBlocking(false);
         data.getBuffer().clear();
-        data.channel = channel;
-        data.setClientAdr(channel.receive(data.getBuffer())); //получили данные у клиента и адрес клиента с которого они пришли
+        data.setClientAdr(data.channel.receive(data.getBuffer())); //получили данные у клиента и адрес клиента с которого они пришли
         try {
             receivedCommand = data.getReceivedCommand();
+            System.out.println("Server received CommandNet Object! " + receivedCommand.getEnteredCommand()[0]);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

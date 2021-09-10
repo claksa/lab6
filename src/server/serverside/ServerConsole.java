@@ -22,25 +22,25 @@ public class ServerConsole implements Runnable {
         Scanner scanner = new Scanner(System.in);
         Reader.PrintMsg("server console started");
         String enteredCommand = null;
-        while (Server.isRunning()) {
+        while (Server.running) {
             try {
                 enteredCommand = scanner.nextLine();
+                if (enteredCommand.equals(" ")){
+                    Reader.PrintMsg("You entered a space. Please wait for the processing of the command sent by the client (if any)");
+                    continue;
+                }
                 executeServer(enteredCommand);
             } catch (NoSuchCommandException e) {
                 Reader.PrintMsg("it is not a command.");
-                if (enteredCommand.equals(" ")){
-                    Reader.PrintMsg("You entered a space. Please wait for the processing of the command sent by the client (if any)");
-                }
                 Server.stop();
             }
-
         }
     }
 
     public void executeServer(String command) throws NoSuchCommandException {
         StringBuilder res = new StringBuilder();
         for (Commandable each : serverList) {
-            if (command.equals(each.getName())) {
+            if (command.equals(each.getName()) && command.equals("")) {
                 each.execute(command);
                 isSuchCommand = true;
             }

@@ -47,9 +47,6 @@ public class Server {
         }
     }
 
-    public static boolean isRunning() {
-        return running;
-    }
 
     public static Selector getSelector() {
         return selector;

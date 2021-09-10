@@ -3,11 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="c4480a7b-0c38-4b1f-81b4-dee83cdcd232" name="Default Changelist" comment="commit suicide">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Executor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Executor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/client/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/Client$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataHolder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerConsole.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/CommandNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/CommandNet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/serverside/DataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/DataHolder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/serverside/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/DataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/serverside/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/serverside/ServerConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/ServerConsole.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,8 +140,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServerPoint" />
         <item itemvalue="Application.ClientPoint" />
+        <item itemvalue="Application.ServerPoint" />
         <item itemvalue="Application.Practice" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
@@ -166,7 +173,7 @@
       <workItem from="1630911429119" duration="65785000" />
       <workItem from="1631120649197" duration="159000" />
       <workItem from="1631120836456" duration="27640000" />
-      <workItem from="1631216496505" duration="8593000" />
+      <workItem from="1631216496505" duration="25949000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1631120411977</created>
@@ -189,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631222860176</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="commit suicide">
+      <created>1631280604647</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1631280604647</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,41 +245,6 @@
           <properties class="java.nio.BufferUnderflowException" package="java.nio" />
           <option name="timeStamp" value="6" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/server/serverside/DataManager.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/server/serverside/DataManager.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/server/lib/Wrapper.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/server/commands/Executor.java</url>
-          <line>89</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/server/commands/Executor.java</url>
-          <line>94</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/server/commands/Executor.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/server/serverside/DataManager.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

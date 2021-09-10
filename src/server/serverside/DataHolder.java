@@ -24,7 +24,6 @@ public class DataHolder {
        try(ByteArrayInputStream in = new ByteArrayInputStream(b);
            ObjectInputStream ois = new ObjectInputStream(in)){
            command = (CommandNet) ois.readObject();
-           System.out.println(" Server received CommandNet Object!");
            if (command.getEnteredCommand()[0].equals("connect")){
                isEstablishedConnection = true;
            }
