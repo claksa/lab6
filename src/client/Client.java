@@ -1,12 +1,16 @@
 package client;
 
 import server.commands.Commandable;
+import server.exceptions.NoSuchCommandException;
 import server.lib.CommanderHolder;
+import server.lib.StorageEntrance;
 import server.serverside.Answer;
 
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
+
+import static client.Reader.PrintMsg;
 
 public class Client {
     InetAddress address;
@@ -15,9 +19,9 @@ public class Client {
     CommandNet commandNetNext = null;
 
     Scanner scanner;
-    boolean isRunning = true;
     boolean isEstablishedConnectionWithServer = false;
     boolean isStarted = false;
+    boolean isCommand = false;
 
     public Client() {
         Reader.PrintMsg("client started");
@@ -39,25 +43,34 @@ public class Client {
                     continue;
                 }
                 String line = scanner.nextLine();
+
+                if (line.equals("exit")) {
+                    System.exit(0);
+                    break;
+                }
                 String[] message = (line.trim() + " ").split(" ", 2);
+                checkCommand(message);
                 playConsole(message);
                 CommandNet cmd = new CommandNet(message);
                 System.out.println("the client starts sending the command to the server");
                 send(cmd);
             }
-        } catch (IOException e){
+        } catch (IOException e) {
             System.out.println(" IO Exception");
-            return;
+        } catch (NoSuchCommandException e) {
+            Reader.PrintErr("you entered incorrect command");
+            Reader.PrintMsg("Please, enter 'help' to get list about available commands!");
+            run();
         }
     }
 
     //   инициализирует работу клиента
     public void startClient() {
-        if (isRunning && isStarted) {
+        if (isStarted) {
             Reader.PrintMsg("the client has already connected to server");
         } else {
             connectServer();
-            createThreadRespondent(); //работает пока isrunning
+            createThreadRespondent();
             isStarted = true;
         }
     }
@@ -80,7 +93,7 @@ public class Client {
     }
 
     public void send(CommandNet command) throws IOException {
-        if (!command.getEnteredCommand()[0].equals("connect")){
+        if (!command.getEnteredCommand()[0].equals("connect")) {
             commandNetNext = command;
         }
         try (ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -107,21 +120,20 @@ public class Client {
                         ByteArrayInputStream in = new ByteArrayInputStream(received);
                         ObjectInputStream ois = new ObjectInputStream(in);
                         Answer answer = (Answer) ois.readObject();
-                        System.out.println("First message in answer:" + answer.getAnswer().get(0));
                         if (answer.getAnswer().get(0).equals("connected")) {
                             isEstablishedConnectionWithServer = true;
                             Reader.PrintMsg("the program was completed at the request of the user");
-                            if (commandNetNext!=null){
-                                System.out.println(" i try to send command [ "+ commandNetNext.getEnteredCommand()[0]+ " ] again!");
+                            if (commandNetNext != null) {
+                                System.out.println(" i try to send command [ " + commandNetNext.getEnteredCommand()[0] + " ] again!");
                                 send(commandNetNext);
                             }
                         } else {
-                            commandNetNext  = null;
+                            commandNetNext = null;
                         }
                         answer.printAnswer();
                     } catch (PortUnreachableException e) {
-                        Reader.PrintMsg("failed to connect to the server :( try after 3 seconds");
                         try {
+                            Reader.PrintMsg("failed to connect to the server :( try after 3 seconds");
                             Thread.sleep(1000);
                             System.out.println(".");
                             Thread.sleep(1000);
@@ -129,8 +141,8 @@ public class Client {
                             Thread.sleep(1000);
                             System.out.println("...");
                             connectServer();
-                        } catch (InterruptedException interruptedException) {
-                            Reader.PrintMsg("girls, we were hacked");
+                        } catch (InterruptedException interruptedException){
+                            Reader.PrintMsg(" i want to sleep! Don't interrupt me pls");
                         }
                     } catch (ClassNotFoundException e) {
                         Reader.PrintMsg("THIS IS NOT A LEARNING ALARM!! CLASS NOT FOUND FOUND! I REPEAT, NO CLASS.\n" +
@@ -149,19 +161,33 @@ public class Client {
     //    запустить когда на клиенте будет введена команда работающая с коллекцией
     public void playConsole(String[] command) {
 //        String[] command = (cmd.trim() + " ").split(" ", 2);
-            if (!(command[0].trim().equals("") | command[1].trim().equals(""))) {
-                for (Commandable eachCommand : CommanderHolder.getCmdList()) {
-                    if (command[0].trim().equals(eachCommand.getName())) {
-                        if (!command[0].trim().equals("connect")) {
+        if (!(command[0].trim().equals("") | command[1].trim().equals(""))) {
+            for (Commandable eachCommand : CommanderHolder.getCmdList()) {
+                if (command[0].trim().equals(eachCommand.getName())) {
+                    if (!command[0].trim().equals("connect")) {
 
-                            if (command[0].trim().equals("add") | command[0].trim().equals("update")) {
-                                CommanderHolder.getCommander().getValidator().setId();
-                            }
-                            CommanderHolder.getCommander().getValidator().setTicket();
+                        if (command[0].trim().equals("add") | command[0].trim().equals("update")) {
+                            CommanderHolder.getCommander().getValidator().setId();
                         }
+                        CommanderHolder.getCommander().getValidator().setTicket();
                     }
                 }
             }
+        }
+    }
+
+    public void checkCommand(String[] cmd) throws NoSuchCommandException {
+        if (!cmd[0].trim().equals(" ")) {
+            for (Commandable eachCommand : CommanderHolder.getCmdList()) {
+                if (cmd[0].trim().equals(eachCommand.getName())) {
+                    PrintMsg("you entered a right command");
+                    isCommand = true;
+                }
+            }
+        }
+        if (!isCommand) {
+            throw new NoSuchCommandException();
+        }
     }
 
 

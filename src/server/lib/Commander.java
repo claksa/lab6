@@ -24,7 +24,6 @@ public class Commander {
         commandsList.add(new Add(collectionManager,validator));
         commandsList.add(new AddMin(collectionManager,validator));
         commandsList.add(new Clear(collectionManager));
-        commandsList.add(new Exit(collectionManager));
         commandsList.add(new FilterStartsWithName(collectionManager));
         commandsList.add(new FilterContainsName(collectionManager));
         commandsList.add(new GroupCountByType(collectionManager));

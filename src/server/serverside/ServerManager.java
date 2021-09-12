@@ -3,6 +3,7 @@ package server.serverside;
 import client.Reader;
 import bridge.Message;
 import server.commands.Executor;
+import server.exceptions.NoSuchCommandException;
 
 import java.io.*;
 import java.net.*;

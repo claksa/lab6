@@ -1,6 +1,8 @@
 package server.serverside;
 
 import client.CommandNet;
+import client.Reader;
+import server.exceptions.NoSuchCommandException;
 import server.lib.Wrapper;
 import server.commands.Executor;
 

@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c4480a7b-0c38-4b1f-81b4-dee83cdcd232" name="Default Changelist" comment="need to test">
+    <list default="true" id="c4480a7b-0c38-4b1f-81b4-dee83cdcd232" name="Default Changelist" comment="commit suicide">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out.json" beforeDir="false" afterPath="$PROJECT_DIR$/out.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab6/client/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/Client$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab6/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab6/client/ClientPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/ClientPoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Executor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Executor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerConsole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/ClientPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/AbstractCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/AbstractCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Executor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/lib/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/lib/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/lib/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/lib/Commander.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/lib/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/lib/FileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/serverside/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/DataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/serverside/ServerConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/ServerConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/serverside/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/ServerManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +65,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager" selected="Application.ClientPoint">
+  <component name="RunManager" selected="Application.ServerPoint">
     <configuration name="ClientPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.ClientPoint" />
       <module name="lab6" />
@@ -169,7 +179,7 @@
       <workItem from="1630911429119" duration="65785000" />
       <workItem from="1631120649197" duration="159000" />
       <workItem from="1631120836456" duration="27640000" />
-      <workItem from="1631216496505" duration="33724000" />
+      <workItem from="1631216496505" duration="44530000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1631120411977</created>
@@ -206,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631314356254</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="commit suicide">
+      <created>1631464401606</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1631464401606</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,9 +247,9 @@
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
     <MESSAGE value="first commit" />
-    <MESSAGE value="commit suicide" />
     <MESSAGE value="need to test" />
-    <option name="LAST_COMMIT_MESSAGE" value="need to test" />
+    <MESSAGE value="commit suicide" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit suicide" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

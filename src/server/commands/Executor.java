@@ -1,7 +1,6 @@
 package server.commands;
 
 import bridge.Message;
-import server.lib.Commander;
 import server.lib.CommanderHolder;
 import server.lib.Wrapper;
 import server.exceptions.NoSuchCommandException;
@@ -96,7 +95,12 @@ public class Executor implements Serializable {
                 PrintMsg("command was successfully executed!\n");
             }
         } else {
-            PrintErr("received command is a null. There is no way to execute the command");
+            ArrayList<String> list = new ArrayList<>();
+            String error = "it isn't a right command. Theres is no way to execute this command";
+            PrintErr(error);
+            list.add(error);
+            list.add("You can enter 'help' to get list about available commands!");
+            answer = new Answer(list);
         }
         return answer;
     }

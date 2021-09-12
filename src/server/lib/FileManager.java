@@ -67,7 +67,7 @@ public class FileManager {
      *
      * @param tickets is a collection to save
      */
-         void saveData(Vector<Ticket> tickets) {
+    public void saveData(Vector<Ticket> tickets) {
 
         /*GsonBuilder builder = new GsonBuilder();
         builder.serializeNulls();
@@ -91,6 +91,7 @@ public class FileManager {
 
     /**
      * additional check if the collection in the file was changed manually
+     *
      * @param tickets collection<Ticket></Ticket>
      */
 
@@ -131,7 +132,7 @@ public class FileManager {
                 }
             } catch (EmptyIOException | IncorrectValueException e) {
                 PrintMsg("Working with the collection will be incorrect.\n" +
-                         "Exit the program.");
+                        "Exit the program.");
                 System.exit(0);
             }
         }

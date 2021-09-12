@@ -4,6 +4,7 @@ import server.models.Ticket;
 import server.models.TicketType;
 
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Vector;
@@ -44,7 +45,6 @@ public class CollectionManager {
     }
 
     public String getStringElements(){
-       tickets.forEach(e-> System.out.println(e.toString()));
        return String.valueOf(tickets);
     }
 
@@ -208,9 +208,10 @@ public class CollectionManager {
 
 //      too lazy to think about how to make it more abstract
     public void assort() {
+        ArrayList<String> result = new ArrayList<>();
 
-        Vector<Ticket> res1 = new Vector<>();
-        Vector<Ticket> res2 = new Vector<>();
+        ArrayList<Ticket> res1 = new ArrayList<>();
+        ArrayList<Ticket> res2 = new ArrayList<>();
         Vector<Ticket> res3 = new Vector<>();
         for (Ticket t : tickets) {
             if (t.getType().equals(TicketType.USUAL)) {

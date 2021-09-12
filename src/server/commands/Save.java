@@ -1,5 +1,6 @@
 package server.commands;
 
+import client.Reader;
 import server.lib.CollectionManager;
 
 import java.util.ArrayList;
@@ -15,7 +16,9 @@ public class Save extends AbstractCommand {
     public ArrayList<String> execute(String argument) {
         ArrayList<String> saveCommand = new ArrayList<>();
         collectionManager.save();
-        saveCommand.add("saved\n");
+        String message = "saved\n";
+        Reader.PrintMsg(message);
+        saveCommand.add(message);
         return saveCommand;
     }
 

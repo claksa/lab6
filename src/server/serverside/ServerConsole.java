@@ -19,34 +19,35 @@ public class ServerConsole implements Runnable {
 
     @Override
     public void run() {
-        Scanner scanner = new Scanner(System.in);
-        Reader.PrintMsg("server console started");
-        String enteredCommand = null;
-        while (Server.running) {
-            try {
-                enteredCommand = scanner.nextLine();
-                if (enteredCommand.equals(" ")){
-                    Reader.PrintMsg("You entered a space. Please wait for the processing of the command sent by the client (if any)");
-                    continue;
+        try (Scanner scanner = new Scanner(System.in)) {
+            String message = "server console started\n" +
+                    "if you want to know about the commands available for execution on the server, enter 'help'\n" +
+                    "or you can just wait for client connection";
+            System.out.println(message);
+            while (Server.running) {
+                try {
+                    String enteredCommand = scanner.nextLine();
+                    executeServer(enteredCommand);
+                } catch (NoSuchCommandException e) {
+                    Reader.PrintMsg("it is not a command.");
+                    Server.stop();
                 }
-                executeServer(enteredCommand);
-            } catch (NoSuchCommandException e) {
-                Reader.PrintMsg("it is not a command.");
-                Server.stop();
             }
         }
     }
 
     public void executeServer(String command) throws NoSuchCommandException {
-        StringBuilder res = new StringBuilder();
+        StringBuilder res = new StringBuilder(" ");
+        if (command.trim().equals("help")) {
+            res.append("\nsave - save collection to file\n");
+            res.append("exit - end the server\n");
+            res.append("help - get list about available server commands\n");
+            System.out.println(res);
+            isSuchCommand = true;
+        }
         for (Commandable each : serverList) {
-            if (command.equals(each.getName()) && command.equals("")) {
+            if (command.equals(each.getName())) {
                 each.execute(command);
-                isSuchCommand = true;
-            }
-            if (command.equals("help")) {
-                res.append(each.getName()).append(" - ").append(each.getDescription());
-                Reader.PrintMsg(res.toString() + "help - get list about available server commands");
                 isSuchCommand = true;
             }
         }
