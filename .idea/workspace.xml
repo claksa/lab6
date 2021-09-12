@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c4480a7b-0c38-4b1f-81b4-dee83cdcd232" name="Default Changelist" comment="commit suicide">
+    <list default="true" id="c4480a7b-0c38-4b1f-81b4-dee83cdcd232" name="Default Changelist" comment="need to test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out.json" beforeDir="false" afterPath="$PROJECT_DIR$/out.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab6/client/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/Client$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab6/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/client/ClientPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/ClientPoint.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/DataManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/ServerConsole.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/CommandNet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/CommandNet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/serverside/DataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/DataHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/ClientPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ClientPoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/serverside/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/DataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/serverside/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/serverside/ServerConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/ServerConsole.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +55,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager" selected="Application.ServerPoint">
+  <component name="RunManager" selected="Application.ClientPoint">
     <configuration name="ClientPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.ClientPoint" />
       <module name="lab6" />
@@ -140,8 +136,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientPoint" />
         <item itemvalue="Application.ServerPoint" />
+        <item itemvalue="Application.ClientPoint" />
         <item itemvalue="Application.Practice" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
@@ -173,7 +169,7 @@
       <workItem from="1630911429119" duration="65785000" />
       <workItem from="1631120649197" duration="159000" />
       <workItem from="1631120836456" duration="27640000" />
-      <workItem from="1631216496505" duration="25949000" />
+      <workItem from="1631216496505" duration="33724000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1631120411977</created>
@@ -203,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631280604647</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="need to test">
+      <created>1631314356254</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1631314356254</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +231,8 @@
     </ignored-roots>
     <MESSAGE value="first commit" />
     <MESSAGE value="commit suicide" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit suicide" />
+    <MESSAGE value="need to test" />
+    <option name="LAST_COMMIT_MESSAGE" value="need to test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

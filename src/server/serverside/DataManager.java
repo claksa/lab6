@@ -18,6 +18,7 @@ public class DataManager {
     Selector selector;
     CommandNet receivedCommand;
     LinkedList<DataHolder> queue = new LinkedList<>();
+    SelectionKey key = null;
 
     public void manageData() {
 
@@ -28,7 +29,7 @@ public class DataManager {
                 Set<SelectionKey> selectedKeys = selector.selectedKeys();
                 Iterator<SelectionKey> keyIterator = selectedKeys.iterator();
                 while (keyIterator.hasNext()) {
-                    SelectionKey key = keyIterator.next();
+                    key = keyIterator.next();
                     keyIterator.remove();
                     if (key.isValid()) {
                         if (key.isReadable()) {
@@ -57,7 +58,7 @@ public class DataManager {
         data.channel = (DatagramChannel) key.channel();
         data.channel.configureBlocking(false);
         data.getBuffer().clear();
-        data.setClientAdr(data.channel.receive(data.getBuffer())); //получили данные у клиента и адрес клиента с которого они пришли
+        data.setClientAdr(data.channel.receive(data.getBuffer()));
         try {
             receivedCommand = data.getReceivedCommand();
             System.out.println("Server received CommandNet Object! " + receivedCommand.getEnteredCommand()[0]);
@@ -80,9 +81,12 @@ public class DataManager {
              ObjectOutputStream oos = new ObjectOutputStream(out)) {
             Answer answer = new Executor().execute(wrapper.getWrappedCommand(receivedCommand));
             oos.writeObject(answer);
-            byte[] b =out.toByteArray();
+            byte[] b = out.toByteArray();
             ByteBuffer buff = ByteBuffer.wrap(b);
             dataHolder.channel.send(buff, dataHolder.getClientAdr());
+        }
+        if (key != null) {
+            key.interestOps(SelectionKey.OP_READ);
         }
     }
 }
