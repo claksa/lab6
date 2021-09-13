@@ -3,37 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="c4480a7b-0c38-4b1f-81b4-dee83cdcd232" name="Default Changelist" comment="commit suicide">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out.json" beforeDir="false" afterPath="$PROJECT_DIR$/out.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/client/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/Client$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/client/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/AddMin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/AddMin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Clear.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Clear.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Commandable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Commandable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Connect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Connect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/ExecuteScript.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/ExecuteScript.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Executor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Executor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Exit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Exit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/FilterContainsName.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/FilterContainsName.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/FilterStartsWithName.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/FilterStartsWithName.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/GroupCountByType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/GroupCountByType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Info.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Remove.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Remove.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/RemoveLower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/RemoveLower.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Show.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Show.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Shuffle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Shuffle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Update.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/models/Address.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/models/Address.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/models/Coordinates.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/models/Coordinates.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/models/Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/models/Location.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/models/TicketType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/models/TicketType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/models/Venue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/models/Venue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/models/VenueType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/models/VenueType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script.txt" beforeDir="false" afterPath="$PROJECT_DIR$/script.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/commands/ExecuteScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/ExecuteScript.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/commands/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Executor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/lib/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/lib/Commander.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/lib/ServerCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/lib/ServerCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/lib/CollectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/lib/CollectionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/lib/ServerCommands.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/lib/ServerCommands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/models/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/models/Ticket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/RemoveLower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/RemoveLower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/lib/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/lib/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/models/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/models/Ticket.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +168,7 @@
       <workItem from="1630911429119" duration="65785000" />
       <workItem from="1631120649197" duration="159000" />
       <workItem from="1631120836456" duration="27640000" />
-      <workItem from="1631216496505" duration="81404000" />
+      <workItem from="1631216496505" duration="84372000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1631120411977</created>
@@ -250,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631564320540</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="commit suicide">
+      <created>1631569064587</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1631569064587</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -8,20 +8,22 @@ import java.util.ArrayList;
 
 public class RemoveLower extends AbstractCommand {
     private final CollectionManager collectionManager;
-    private final Validator validator;
 
     public RemoveLower(CollectionManager collectionManager, Validator validator) {
         this.collectionManager = collectionManager;
-        this.validator = validator;
     }
 
     @Override
     public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         ArrayList<String> removeLowerCommand = new ArrayList<>();
-        if (collectionManager.isEqualId(id)) {
-            collectionManager.removeLower(ticket);
+        if (!collectionManager.isEqualId(id)) {
+            ticket.setId(id);
+            System.out.println("Ticket comp ID: " + id);
+            collectionManager.removeLow(ticket);
+            removeLowerCommand.add("removed\n");
+        } else {
+            removeLowerCommand.add("i cant remove :(");
         }
-        removeLowerCommand.add("removed\n");
         return removeLowerCommand;
     }
 

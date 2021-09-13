@@ -19,6 +19,7 @@ public class CollectionManager {
     /**
      * Constructor
      * check fields in collection
+     *
      * @param fileManager to read collection from file
      */
 
@@ -29,7 +30,6 @@ public class CollectionManager {
     }
 
     /**
-     *
      * @return information about collection
      */
 
@@ -44,12 +44,13 @@ public class CollectionManager {
         return res;
     }
 
-    public String getStringElements(){
-       return String.valueOf(tickets);
+    public String getStringElements() {
+        return String.valueOf(tickets);
     }
 
     /**
      * getter for collection that have read from file (i hope)
+     *
      * @return collection
      */
 
@@ -67,6 +68,7 @@ public class CollectionManager {
 
     /**
      * alternative getter for id
+     *
      * @return generated id
      */
 
@@ -83,6 +85,7 @@ public class CollectionManager {
 
     /**
      * change ticket object by id
+     *
      * @param update ticket object
      */
 
@@ -99,6 +102,7 @@ public class CollectionManager {
 
     /**
      * add item to collection
+     *
      * @param ticket object
      */
 
@@ -114,6 +118,7 @@ public class CollectionManager {
 
     /**
      * add new item to collection with min id
+     *
      * @param ticket object
      */
 
@@ -130,6 +135,7 @@ public class CollectionManager {
 
     /**
      * check id
+     *
      * @param ID of ticket/venue object
      * @return boolean value: true if id's are equal to each other
      */
@@ -146,6 +152,7 @@ public class CollectionManager {
 
     /**
      * remove item by id
+     *
      * @param id id to compare
      */
 
@@ -156,7 +163,7 @@ public class CollectionManager {
                 .forEach(System.out::println);
     }
 
-    public void remove (Integer id) {
+    public void remove(Integer id) {
         for (Ticket t : tickets) {
             if (t.getId().equals(id)) {
                 tickets.remove(t);
@@ -167,6 +174,7 @@ public class CollectionManager {
 
     /**
      * remove item with lower id
+     *
      * @param ticket object
      */
 
@@ -176,12 +184,24 @@ public class CollectionManager {
                 PrintMsg("cannot be removed\n");
                 return;
             }
+            tickets.remove(t);
         }
-        tickets.remove(ticket);
+    }
+
+    public void removeLow(Ticket ticket) {
+        for (Ticket t : tickets) {
+            if (ticket.getId() > t.getId()) {
+                tickets.remove(t);
+            } else {
+                PrintMsg("cannot be removed\n");
+                return;
+            }
+        }
     }
 
     /**
      * find substring in ticket's name (in start)
+     *
      * @param substring to find in field name
      * @return object with this substring in name
      */
@@ -198,6 +218,7 @@ public class CollectionManager {
 
     /**
      * find substring in ticket's name
+     *
      * @param substring to find in field name
      * @return object with this substring in name
      */
@@ -235,13 +256,13 @@ public class CollectionManager {
             }
         }
         System.out.println(res1);
-        PrintMsg("Number of elements " +"(type - "+ TicketType.USUAL + "): " + res1.size());
+        PrintMsg("Number of elements " + "(type - " + TicketType.USUAL + "): " + res1.size());
 
         System.out.println(res2);
-        PrintMsg("Number of elements " +"(type - "+ TicketType.CHEAP + "): " + res2.size());
+        PrintMsg("Number of elements " + "(type - " + TicketType.CHEAP + "): " + res2.size());
 
         System.out.println(res3);
-        PrintMsg("Number of elements " +"(type - "+ TicketType.BUDGETARY + "): " + res3.size());
+        PrintMsg("Number of elements " + "(type - " + TicketType.BUDGETARY + "): " + res3.size());
 
     }
 }

@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Ticket implements Serializable {
-    private final int id;
+    private  int id;
     private final String name;
     private final Coordinates coordinates;
     private final LocalDateTime creationDate;
@@ -32,6 +32,10 @@ public class Ticket implements Serializable {
 
     public Integer getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
