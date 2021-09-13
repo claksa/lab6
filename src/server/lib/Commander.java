@@ -13,14 +13,15 @@ public class Commander {
     Validator validator;
 
 
+
     public Commander(){
         commandsList = new ArrayList<>();
     }
 
-    public List<Commandable> getCommandsList(FileManager fileManager,Scanner scanner){
+    public List<Commandable> getCommandsList(FileManager fileManager, Scanner scanner){
         CollectionManager collectionManager = new CollectionManager(fileManager);
         ConsoleManager consoleManager = new ConsoleManager(scanner);
-        validator = new Validator(consoleManager);
+        validator = new Validator(consoleManager,collectionManager);
         commandsList.add(new Add(collectionManager,validator));
         commandsList.add(new AddMin(collectionManager,validator));
         commandsList.add(new Clear(collectionManager));

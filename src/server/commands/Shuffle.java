@@ -1,6 +1,7 @@
 package server.commands;
 
 import server.lib.CollectionManager;
+import server.models.Ticket;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,16 +13,17 @@ public class Shuffle extends AbstractCommand {
         this.collectionManager = collectionManager;
     }
 
-    @Override
-    public ArrayList<String> execute(String argument) {
-        ArrayList<String> shuffleCommand = new ArrayList<>();
-        Collections.shuffle(collectionManager.getTickets());
-        shuffleCommand.add("shuffled\n");
-        return shuffleCommand;
-    }
 
     @Override
     public String getDescription() {
         return " shuffle the elements of the collection at random\n";
+    }
+
+    @Override
+    public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
+        ArrayList<String> shuffleCommand = new ArrayList<>();
+        Collections.shuffle(collectionManager.getTickets());
+        shuffleCommand.add("shuffled\n");
+        return shuffleCommand;
     }
 }

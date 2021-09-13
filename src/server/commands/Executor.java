@@ -2,9 +2,9 @@ package server.commands;
 
 import bridge.Message;
 import server.lib.CommanderHolder;
-import server.lib.Wrapper;
 import server.exceptions.NoSuchCommandException;
 import server.lib.ScriptManager;
+import server.models.Ticket;
 import server.serverside.Answer;
 
 import java.io.Serializable;
@@ -55,7 +55,7 @@ public class Executor implements Serializable {
                         if (commandable.getName().trim().equals("add")) {
                             changeScanner(scriptManager.getScriptReader());
                             try {
-                                commandable.execute(cmd[1]);
+                                commandable.execute(cmd[1],null,null );
                                 isFindCommand = true;
                                 break;
                             } catch (NoSuchElementException e) {
@@ -63,7 +63,7 @@ public class Executor implements Serializable {
                             }
                             changeScanner(new Scanner(System.in));
                         } else {
-                            commandable.execute(cmd[1]);
+                            commandable.execute(cmd[1], null ,null);
                             isFindCommand = true;
                             break;
                         }
@@ -76,8 +76,8 @@ public class Executor implements Serializable {
         }
     }
 
-    //    не забыть про коннект. обработать выше, чтобы команда в этот метод не заходила.
-    public Answer execute(String receivedCommand) {
+
+    public Answer execute(String receivedCommand, String argument, Ticket ticket, Integer id) {
         boolean isRightCommand = false;
         Commandable commandToExecute = null;
         Answer answer = null;
@@ -91,7 +91,7 @@ public class Executor implements Serializable {
                 }
             }
             if (isRightCommand) {
-                answer = new Answer(commandToExecute.execute(new Wrapper().getArgument()));
+                answer = new Answer(commandToExecute.execute(argument,ticket, id));
                 PrintMsg("command was successfully executed!\n");
             }
         } else {

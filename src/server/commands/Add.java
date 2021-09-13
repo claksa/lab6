@@ -1,5 +1,6 @@
 package server.commands;
 
+
 import client.Validator;
 import server.lib.CollectionManager;
 import server.models.Ticket;
@@ -12,17 +13,17 @@ public class Add extends AbstractCommand implements Serializable {
     private final Validator validator;
 
 
-    public Add(CollectionManager collectionManager,Validator validator) {
+
+    public Add(CollectionManager collectionManager, Validator validator) {
         this.collectionManager = collectionManager;
         this.validator = validator;
     }
 
 
     @Override
-    public ArrayList<String> execute(String argument) {
+    public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         ArrayList<String> addCommand = new ArrayList<>();
-        Ticket item = validator.getTicket();
-        collectionManager.addItem(item);
+        collectionManager.addItem(ticket);
         addCommand.add("the new item has been successfully added to the collection\n");
         return addCommand;
     }

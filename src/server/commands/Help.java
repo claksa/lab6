@@ -1,5 +1,7 @@
 package server.commands;
 
+import server.models.Ticket;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +16,7 @@ public class Help extends AbstractCommand {
     }
 
     @Override
-    public ArrayList<String> execute(String argument) {
+    public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         ArrayList<String> helpCommand = new ArrayList<>();
         StringBuilder res = new StringBuilder();
         for (Commandable commandable : commandsAvailable) {

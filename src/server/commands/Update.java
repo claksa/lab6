@@ -18,8 +18,7 @@ public class Update extends AbstractCommand {
     }
 
     @Override
-    public ArrayList<String> execute(String argument) {
-        int id;
+    public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         ArrayList<String> updateCommand = new ArrayList<>();
         try {
             if (argument.trim().equals("")) throw new EmptyIOException();
@@ -32,7 +31,6 @@ public class Update extends AbstractCommand {
         } catch (NoSuchIdException e) {
             updateCommand.add("Error: No such ID in collection");
         }
-        Ticket ticket = validator.getTicket();
         collectionManager.update(ticket);
         updateCommand.add("updated\n");
         return updateCommand;

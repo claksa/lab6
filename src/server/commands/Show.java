@@ -1,6 +1,7 @@
 package server.commands;
 
 import server.lib.CollectionManager;
+import server.models.Ticket;
 
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ public class Show extends AbstractCommand {
     }
 
     @Override
-    public ArrayList<String> execute(String argument) {
+    public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         ArrayList<String> showCommand = new ArrayList<>();
         showCommand.add(collectionManager.getStringElements());
         showCommand.add("\nshowed\n");

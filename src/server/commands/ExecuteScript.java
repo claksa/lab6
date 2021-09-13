@@ -2,7 +2,7 @@ package server.commands;
 
 import server.exceptions.LackOfAccessException;
 import server.exceptions.NoSuchCommandException;
-import server.lib.StorageEntrance;
+import server.models.Ticket;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -22,7 +22,7 @@ public class ExecuteScript extends AbstractCommand {
     }
 
     @Override
-    public ArrayList<String> execute(String argument) {
+    public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         executeScriptCommand = new ArrayList<>();
         try {
             if (!Files.isExecutable(Paths.get(argument))){

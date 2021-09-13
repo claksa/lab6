@@ -1,6 +1,7 @@
 package server.commands;
 
-import java.io.Serializable;
+import server.models.Ticket;
+
 import java.util.ArrayList;
 
 /**
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  */
 public interface Commandable  {
     String getDescription();
-    ArrayList<String> execute (String argument);
+    ArrayList<String> execute (String argument, Ticket ticket, Integer id);
 
     default String getName() {
         return getClass().getSimpleName().toLowerCase();

@@ -1,6 +1,7 @@
 package server.commands;
 
 import server.lib.CollectionManager;
+import server.models.Ticket;
 
 import java.util.ArrayList;
 
@@ -14,7 +15,7 @@ public class Clear extends AbstractCommand {
 
 
     @Override
-    public ArrayList<String> execute(String argument) {
+    public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         collectionManager.getTickets().clear();
         ArrayList<String> clearCommand = new ArrayList<>();
         clearCommand.add("collection cleaned successfully");

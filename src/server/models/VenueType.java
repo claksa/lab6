@@ -1,6 +1,8 @@
 package server.models;
 
-public enum VenueType {
+import java.io.Serializable;
+
+public enum VenueType implements Serializable {
     PUB,
     BAR,
     MALL;

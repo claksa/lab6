@@ -1,32 +1,19 @@
 package server.serverside;
 
 import client.Reader;
-import server.commands.Commandable;
-import server.commands.Executor;
-import server.lib.Commander;
 import server.lib.CommanderHolder;
-import server.lib.FileManager;
-import server.lib.StorageEntrance;
 
 import java.io.IOException;
-import java.net.DatagramSocket;
-import java.net.InetSocketAddress;
-import java.net.SocketAddress;
+import java.net.*;
 import java.nio.channels.DatagramChannel;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class Server {
     DatagramChannel channel;
     static Selector selector;
     public static boolean running = false;
 
-    public Server(){
-        CommanderHolder commander = new CommanderHolder();
-    }
 
     public void startServer() {
         Reader.PrintMsg("server started");

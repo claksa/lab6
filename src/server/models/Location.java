@@ -1,6 +1,8 @@
 package server.models;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
     private final Float x;
     private final Integer y;
     private final Integer z;

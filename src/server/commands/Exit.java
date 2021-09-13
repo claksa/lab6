@@ -2,6 +2,7 @@ package server.commands;
 
 import client.Reader;
 import server.lib.CollectionManager;
+import server.models.Ticket;
 import server.serverside.Server;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class Exit extends AbstractCommand {
      */
 
     @Override
-    public ArrayList<String> execute(String argument) {
+    public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         ArrayList<String> exitCommand = new ArrayList<>();
         collectionManager.save();
         Server.running = false;

@@ -1,9 +1,10 @@
 package server.models;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Ticket {
+public class Ticket implements Serializable {
     private final int id;
     private final String name;
     private final Coordinates coordinates;
@@ -11,32 +12,19 @@ public class Ticket {
     private final int price;
     private final TicketType type; //Поле может быть null
     private final Venue venue; //Поле может быть null
-    private static int lastId=0;
+    private static Integer lastId = 0;
 
-    public Ticket(String name, LocalDateTime creationDate, Coordinates coordinates, int price, TicketType type, Venue venue) {
+    public Ticket(String name,Coordinates coordinates, int price, TicketType type, Venue venue) {
         this.name = name;
         this.coordinates = coordinates;
-        this.creationDate = creationDate;
+        this.creationDate = LocalDateTime.now();
         this.price = price;
         this.type = type;
         this.venue = venue;
         lastId++;
-        id=lastId;
+        this.id = lastId;
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ticket ticket = (Ticket) o;
-        return id == ticket.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 
     public LocalDateTime getCreationDate() {
         return creationDate;
@@ -68,14 +56,13 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "Ticket{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", coordinates=" + coordinates +
-                ", creationDate=" + creationDate +
-                ", price=" + price +
-                ", type=" + type +
-                ", venue=" + venue +
+        return "\n"+"Ticket"+ "\n" +
+                " { id =" + id + "\n" +
+                "name='" + name + '\'' + "\n" +
+                "coordinates=" + coordinates.toString() + "\n" +
+                "price=" + price + "\n" +
+                "type=" + type + "\n" +
+                "venue=" + venue + "\n" +
                 '}';
     }
 }

@@ -16,13 +16,10 @@ public class RemoveLower extends AbstractCommand {
     }
 
     @Override
-    public ArrayList<String> execute(String argument) {
+    public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         ArrayList<String> removeLowerCommand = new ArrayList<>();
-        Integer id;
-        id = validator.getId();
-        Ticket object = validator.getTicket();
         if (collectionManager.isEqualId(id)) {
-            collectionManager.removeLower(object);
+            collectionManager.removeLower(ticket);
         }
         removeLowerCommand.add("removed\n");
         return removeLowerCommand;

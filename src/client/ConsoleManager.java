@@ -17,7 +17,7 @@ public class ConsoleManager extends Reader {
      */
 
     public Ticket getTicketObj() {
-        PrintMsg("Ticket ID: " );
+//        PrintMsg("Ticket ID: " + id );
         String name = readString("Enter your name for the ticket: ");
 
         double x;
@@ -43,8 +43,8 @@ public class ConsoleManager extends Reader {
         Coordinates coordinates = new Coordinates(x, y);
 
 
-        LocalDateTime time = LocalDateTime.now();
-        PrintMsg("CreationDate " + time);
+//        LocalDateTime time = LocalDateTime.now();
+//        PrintMsg("CreationDate " + time);
 
         Integer price;
         while (true) {
@@ -58,8 +58,7 @@ public class ConsoleManager extends Reader {
 
         TicketType ticketType = readEnumType(TicketType.class, "Enter a ticket type:");
 
-        Ticket ticket = new Ticket(name, time, coordinates, price, ticketType, getVenueObj());
-        return ticket;
+        return new Ticket(name,coordinates, price, ticketType, getVenueObj());
     }
 
     /**
@@ -94,8 +93,7 @@ public class ConsoleManager extends Reader {
 
         Address address = new Address(street, zipCode, town);
 
-        Venue venue = new Venue(venueName, capacity, venueType, address);
-        return venue;
+        return new Venue(venueName, capacity, venueType, address);
     }
 
 

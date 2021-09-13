@@ -1,6 +1,8 @@
 package server.models;
 
-public class Venue {
+import java.io.Serializable;
+
+public class Venue implements Serializable {
     private final long id;
     private final String name;
     private final Integer capacity;
@@ -44,7 +46,7 @@ public class Venue {
                 ", name='" + name + '\'' +
                 ", capacity=" + capacity +
                 ", type=" + type +
-                ", address=" + address +
+                ", address=" + address.toString() +
                 '}';
     }
 }

@@ -1,14 +1,17 @@
 package client;
 
+import server.lib.CollectionManager;
 import server.models.Ticket;
 
 public class Validator {
     Ticket ticket;
     Integer id;
     ConsoleManager consoleManager;
+    CollectionManager collectionManager;
 
-    public Validator(ConsoleManager consoleManager) {
+    public Validator(ConsoleManager consoleManager, CollectionManager collectionManager) {
         this.consoleManager = consoleManager;
+        this.collectionManager = collectionManager;
     }
 
     public void setTicket() {

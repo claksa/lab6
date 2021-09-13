@@ -104,6 +104,7 @@ public class CollectionManager {
 
 
     public void addItem(Ticket ticket) {
+        System.out.println("ticket object needs to add: " + ticket);
         for (Ticket t : tickets) {
             tickets.add(ticket);
             PrintMsg("added\n");
@@ -153,6 +154,15 @@ public class CollectionManager {
                 .filter(t -> t.getId().equals(id))
                 .peek(t -> tickets.remove(t))
                 .forEach(System.out::println);
+    }
+
+    public void remove (Integer id) {
+        for (Ticket t : tickets) {
+            if (t.getId().equals(id)) {
+                tickets.remove(t);
+                return;
+            }
+        }
     }
 
     /**

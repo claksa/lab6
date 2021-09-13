@@ -1,11 +1,13 @@
 package server.lib;
 
+import client.Client;
 import client.CommandNet;
-import server.commands.AbstractCommand;
+import client.TicketInfoHolder;
 import server.commands.Commandable;
+import server.models.Ticket;
 
 import java.io.Serializable;
-import java.util.List;
+
 
 public class Wrapper implements Serializable {
     String command;
@@ -25,7 +27,18 @@ public class Wrapper implements Serializable {
         return this.command;
     }
 
-//    важно: доступ только у клиента!
+    public Ticket getWrappedTicket(CommandNet cmd) {
+        System.out.println("IN GET WRAPPED TICKET (BEFORE EXECUTION): ");
+        System.out.println(cmd.getTicket());
+        return cmd.getTicket();
+    }
+
+    public Integer getWrappedId(CommandNet cmd){
+        System.out.println("IN GET WRAPPED ID (BEFORE EXECUTION):");
+        return cmd.getId();
+    }
+
+    //    важно: доступ только у клиента!
     String getCommand() {
         return command;
     }

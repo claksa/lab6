@@ -2,6 +2,7 @@ package server.commands;
 
 import server.exceptions.EmptyIOException;
 import server.lib.CollectionManager;
+import server.models.Ticket;
 
 import java.util.ArrayList;
 
@@ -15,10 +16,12 @@ public class FilterStartsWithName extends AbstractCommand {
     /**
      * execute filter_starts_with_name command
      * @param argument name to check
+     * @param ticket
+     * @param id
      */
 
     @Override
-    public ArrayList<String> execute(String argument) {
+    public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         ArrayList<String> filterStartsCommand = new ArrayList<>();
         if (argument.isEmpty()) {
             try {

@@ -3,7 +3,8 @@ package client;
 import server.commands.Commandable;
 import server.exceptions.NoSuchCommandException;
 import server.lib.CommanderHolder;
-import server.lib.StorageEntrance;
+import server.lib.Wrapper;
+import server.models.Ticket;
 import server.serverside.Answer;
 
 import java.io.*;
@@ -17,7 +18,6 @@ public class Client {
     SocketAddress serverAdr = new InetSocketAddress("localhost", 9000);
     DatagramSocket socket;
     CommandNet commandNetNext = null;
-
     Scanner scanner;
     boolean isEstablishedConnectionWithServer = false;
     boolean isStarted = false;
@@ -25,12 +25,15 @@ public class Client {
 
     public Client() {
         Reader.PrintMsg("client started");
-        CommanderHolder commander = new CommanderHolder();
         scanner = new Scanner(System.in);
+        CommanderHolder commanderHolder = new CommanderHolder();
         try {
+            socket = new DatagramSocket();
             address = InetAddress.getByName("localhost");
         } catch (UnknownHostException e) {
             Reader.PrintErr("unknown host");
+        } catch (SocketException e) {
+            e.printStackTrace();
         }
     }
 
@@ -50,13 +53,13 @@ public class Client {
                 }
                 String[] message = (line.trim() + " ").split(" ", 2);
                 checkCommand(message);
-                playConsole(message);
                 CommandNet cmd = new CommandNet(message);
-                System.out.println("the client starts sending the command to the server");
+//                socket.setSoTimeout(3000);
                 send(cmd);
             }
         } catch (IOException e) {
-            System.out.println(" IO Exception");
+//            System.out.println("So, it is IOException (not expectation)");
+            e.printStackTrace();
         } catch (NoSuchCommandException e) {
             Reader.PrintErr("you entered incorrect command");
             Reader.PrintMsg("Please, enter 'help' to get list about available commands!");
@@ -78,7 +81,6 @@ public class Client {
     //    точка создания сокета и начало соединения с сервером
     public void connectServer() {
         try {
-            socket = new DatagramSocket();
             Reader.PrintMsg("client connected to socket " + socket);
             socket.connect(serverAdr);
             String[] connect = {"connect", " "};
@@ -141,7 +143,7 @@ public class Client {
                             Thread.sleep(1000);
                             System.out.println("...");
                             connectServer();
-                        } catch (InterruptedException interruptedException){
+                        } catch (InterruptedException interruptedException) {
                             Reader.PrintMsg(" i want to sleep! Don't interrupt me pls");
                         }
                     } catch (ClassNotFoundException e) {
@@ -158,24 +160,6 @@ public class Client {
         respondent.start();
     }
 
-    //    запустить когда на клиенте будет введена команда работающая с коллекцией
-    public void playConsole(String[] command) {
-//        String[] command = (cmd.trim() + " ").split(" ", 2);
-        if (!(command[0].trim().equals("") | command[1].trim().equals(""))) {
-            for (Commandable eachCommand : CommanderHolder.getCmdList()) {
-                if (command[0].trim().equals(eachCommand.getName())) {
-                    if (!command[0].trim().equals("connect")) {
-
-                        if (command[0].trim().equals("add") | command[0].trim().equals("update")) {
-                            CommanderHolder.getCommander().getValidator().setId();
-                        }
-                        CommanderHolder.getCommander().getValidator().setTicket();
-                    }
-                }
-            }
-        }
-    }
-
     public void checkCommand(String[] cmd) throws NoSuchCommandException {
         if (!cmd[0].trim().equals(" ")) {
             for (Commandable eachCommand : CommanderHolder.getCmdList()) {
@@ -189,6 +173,5 @@ public class Client {
             throw new NoSuchCommandException();
         }
     }
-
 
 }

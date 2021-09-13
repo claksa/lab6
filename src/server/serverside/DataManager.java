@@ -47,7 +47,7 @@ public class DataManager {
                     System.out.println(queue.size());
                     requestData(queue.poll());
                 }
-            } catch (IOException | ClassNotFoundException e) {
+            } catch (IOException | ClassNotFoundException | InterruptedException e) {
                 e.printStackTrace();
             }
         }
@@ -74,14 +74,13 @@ public class DataManager {
     }
 
     //    отправляем данные клиенту (отправляем результат выполненных команд)
-    public void requestData(DataHolder dataHolder) throws IOException, ClassNotFoundException {
+    public void requestData(DataHolder dataHolder) throws IOException, ClassNotFoundException, InterruptedException {
         dataHolder.getBuffer().flip();
         CommandNet receivedCommand = dataHolder.getReceivedCommand();
         Wrapper wrapper = new Wrapper();
-
         try (ByteArrayOutputStream out = new ByteArrayOutputStream();
              ObjectOutputStream oos = new ObjectOutputStream(out)) {
-            Answer answer = new Executor().execute(wrapper.getWrappedCommand(receivedCommand));
+            Answer answer = new Executor().execute(wrapper.getWrappedCommand(receivedCommand), wrapper.getArgument(),wrapper.getWrappedTicket(receivedCommand), wrapper.getWrappedId(receivedCommand));
             oos.writeObject(answer);
             byte[] b = out.toByteArray();
             ByteBuffer buff = ByteBuffer.wrap(b);

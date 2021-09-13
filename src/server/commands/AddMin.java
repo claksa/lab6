@@ -8,23 +8,23 @@ import java.util.ArrayList;
 
 public class AddMin extends AbstractCommand {
     private final CollectionManager collectionManager;
-    private final Validator validator;
 
     public AddMin(CollectionManager collectionManager,Validator validator) {
         this.collectionManager = collectionManager;
-        this.validator = validator;
     }
 
     @Override
-    public ArrayList<String> execute(String argument) {
-        Integer id = validator.getId();
-        Ticket object = validator.getTicket();
+    public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         ArrayList<String> addMinCommand = new ArrayList<>();
         if (!collectionManager.isEqualId(id)) {
-            collectionManager.addMin(object);
+            collectionManager.addMin(ticket);
             addMinCommand.add("min item added\n");
         } else addMinCommand.add("such an ID already exists, alas");
         return addMinCommand;
+    }
+
+    public void execute(Ticket ticket){
+        collectionManager.addMin(ticket);
     }
 
     @Override

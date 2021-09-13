@@ -4,6 +4,7 @@ import client.Validator;
 import server.exceptions.EmptyIOException;
 import server.exceptions.NoSuchIdException;
 import server.lib.CollectionManager;
+import server.models.Ticket;
 
 import java.util.ArrayList;
 
@@ -18,19 +19,17 @@ public class Remove extends AbstractCommand {
 
 
     @Override
-    public ArrayList<String> execute(String argument) {
+    public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         ArrayList<String> removeCommand = new ArrayList<>();
-        int id = 0;
         try {
             if (argument.trim().isEmpty()) throw new EmptyIOException();
-            id = validator.getId();
             if (!collectionManager.isEqualId(id)) throw new NoSuchIdException();
         } catch (EmptyIOException e) {
             removeCommand.add("Error: you entered a null-argument");
         } catch (NoSuchIdException e) {
             removeCommand.add("Error: no element with such id in collection");
         }
-        collectionManager.removeById(id);
+        collectionManager.remove(id);
         removeCommand.add("removed\n");
         return removeCommand;
     }

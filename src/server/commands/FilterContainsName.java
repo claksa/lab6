@@ -2,6 +2,7 @@ package server.commands;
 
 import server.exceptions.EmptyIOException;
 import server.lib.CollectionManager;
+import server.models.Ticket;
 
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ public class FilterContainsName extends AbstractCommand {
     }
 
     @Override
-    public ArrayList<String> execute(String argument) {
+    public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         ArrayList<String> filterContainsCommand = new ArrayList<>();
         if (argument.isEmpty()) {
             try {
