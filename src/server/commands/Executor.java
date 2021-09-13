@@ -55,7 +55,7 @@ public class Executor implements Serializable {
                         if (commandable.getName().trim().equals("add")) {
                             changeScanner(scriptManager.getScriptReader());
                             try {
-                                commandable.execute(cmd[1],null,null );
+                                ExecuteScript.getExecuteScriptCommand().addAll(commandable.execute(cmd[1],null,null ));
                                 isFindCommand = true;
                                 break;
                             } catch (NoSuchElementException e) {
@@ -63,7 +63,7 @@ public class Executor implements Serializable {
                             }
                             changeScanner(new Scanner(System.in));
                         } else {
-                            commandable.execute(cmd[1], null ,null);
+                            ExecuteScript.getExecuteScriptCommand().addAll(commandable.execute(cmd[1],null ,null));
                             isFindCommand = true;
                             break;
                         }
@@ -105,22 +105,6 @@ public class Executor implements Serializable {
         return answer;
     }
 
-    /*public Message execute(String cmd) {
-        String[] command = (cmd.trim() + " ").split(" ", 2);
-        Message infoToClient = new Message("");
-          if (!command[0].trim().equals("")) {
-            for (Commandable each : commandsList) {
-                if (command[0].trim().equals(each.getName())) {
-                    infoToClient = new Message("you entered a right command");
-                    each.execute(command[1]);
-                    break;
-                }
-            }
-        }
-        String finalRes = (infoToClient.toString() + "\n" + "");
-        PrintMsg("command was executed");
-        return infoToClient;
-    }*/
 
     public Message getInfoToClient() {
         return infoToClient;

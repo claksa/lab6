@@ -15,7 +15,7 @@ public class ServerCommands {
     }
 
     public List<Commandable> getServerCommands() {
-        CollectionManager collectionManager = new CollectionManager(new FileManager());
+        CollectionManager collectionManager = CommanderHolder.getCommander().collectionManager;
         serverCommands.add(new Save(collectionManager));
         serverCommands.add(new Exit(collectionManager));
         return serverCommands;

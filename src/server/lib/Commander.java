@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class Commander {
     protected List<Commandable> commandsList;
     Validator validator;
+    CollectionManager collectionManager;
 
 
 
@@ -19,7 +20,7 @@ public class Commander {
     }
 
     public List<Commandable> getCommandsList(FileManager fileManager, Scanner scanner){
-        CollectionManager collectionManager = new CollectionManager(fileManager);
+        collectionManager = new CollectionManager(fileManager);
         ConsoleManager consoleManager = new ConsoleManager(scanner);
         validator = new Validator(consoleManager,collectionManager);
         commandsList.add(new Add(collectionManager,validator));

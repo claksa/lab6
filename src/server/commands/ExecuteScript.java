@@ -23,9 +23,11 @@ public class ExecuteScript extends AbstractCommand {
 
     @Override
     public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
+        String path = "C:\\учёба\\itmo\\labs\\programming\\lab6\\script.txt";
+        System.out.println("argument that you really entered as a path: " + argument);
         executeScriptCommand = new ArrayList<>();
         try {
-            if (!Files.isExecutable(Paths.get(argument))){
+            if (!Files.isExecutable(Paths.get(path))){
                 throw new LackOfAccessException();
             }
             if (!argument.trim().equals("")) {

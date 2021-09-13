@@ -3,8 +3,6 @@ package client;
 import server.commands.Commandable;
 import server.exceptions.NoSuchCommandException;
 import server.lib.CommanderHolder;
-import server.lib.Wrapper;
-import server.models.Ticket;
 import server.serverside.Answer;
 
 import java.io.*;
