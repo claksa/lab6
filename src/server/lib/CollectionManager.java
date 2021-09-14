@@ -99,12 +99,11 @@ public class CollectionManager {
 
     /**
      * add item to collection
-     *
      * @param ticket object
      */
 
 
-    public void addItem(Ticket ticket) {
+    public  void addItem(Ticket ticket) {
         System.out.println("ticket object needs to add: " + ticket);
         for (Ticket t : tickets) {
             tickets.add(ticket);
@@ -115,7 +114,6 @@ public class CollectionManager {
 
     /**
      * add new item to collection with min id
-     *
      * @param ticket object
      */
 
@@ -175,7 +173,6 @@ public class CollectionManager {
 
     /**
      * find substring in ticket's name (in start)
-     *
      * @param substring to find in field name
      * @return object with this substring in name
      */
