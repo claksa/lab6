@@ -18,11 +18,13 @@ public class RemoveLower extends AbstractCommand {
         ArrayList<String> removeLowerCommand = new ArrayList<>();
         if (!collectionManager.isEqualId(id)) {
             ticket.setId(id);
-            System.out.println("Ticket comp ID: " + id);
-            collectionManager.removeLow(ticket);
-            removeLowerCommand.add("removed\n");
+            if(collectionManager.removeIfLowerId(ticket)) {
+                removeLowerCommand.add("removed\n");
+            } else {
+                removeLowerCommand.add("Theres is no elements to remove");
+            }
         } else {
-            removeLowerCommand.add("i cant remove :(");
+            removeLowerCommand.add("I can not delete this ID. Please, enter unique");
         }
         return removeLowerCommand;
     }

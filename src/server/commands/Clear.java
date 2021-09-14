@@ -16,7 +16,7 @@ public class Clear extends AbstractCommand {
 
     @Override
     public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
-        collectionManager.getTickets().clear();
+        collectionManager.clear();
         ArrayList<String> clearCommand = new ArrayList<>();
         clearCommand.add("collection cleaned successfully");
         return clearCommand;

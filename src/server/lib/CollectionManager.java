@@ -4,10 +4,7 @@ import server.models.Ticket;
 import server.models.TicketType;
 
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Vector;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static client.ConsoleManager.PrintMsg;
@@ -159,8 +156,7 @@ public class CollectionManager {
     public void removeById(Integer id) {
         tickets.stream()
                 .filter(t -> t.getId().equals(id))
-                .peek(t -> tickets.remove(t))
-                .forEach(System.out::println);
+                .peek(t -> tickets.remove(t));
     }
 
     public void remove(Integer id) {
@@ -172,31 +168,9 @@ public class CollectionManager {
         }
     }
 
-    /**
-     * remove item with lower id
-     *
-     * @param ticket object
-     */
 
-    public void removeLower(Ticket ticket) {
-        for (Ticket t : tickets) {
-            if (ticket.getId() > t.getId()) {
-                PrintMsg("cannot be removed\n");
-                return;
-            }
-            tickets.remove(t);
-        }
-    }
-
-    public void removeLow(Ticket ticket) {
-        for (Ticket t : tickets) {
-            if (ticket.getId() > t.getId()) {
-                tickets.remove(t);
-            } else {
-                PrintMsg("cannot be removed\n");
-                return;
-            }
-        }
+    public boolean removeIfLowerId(Ticket ticket) {
+        return tickets.removeIf(ticket1 -> (ticket.getId() > ticket1.getId()));
     }
 
     /**
@@ -233,36 +207,17 @@ public class CollectionManager {
         return list.toString();
     }
 
-    /**
-     * group collection by enum type
-     */
+    public void clear() {
+        tickets.clear();
+    }
 
-//      too lazy to think about how to make it more abstract
-    public void assort() {
-        ArrayList<String> result = new ArrayList<>();
 
-        ArrayList<Ticket> res1 = new ArrayList<>();
-        ArrayList<Ticket> res2 = new ArrayList<>();
-        Vector<Ticket> res3 = new Vector<>();
-        for (Ticket t : tickets) {
-            if (t.getType().equals(TicketType.USUAL)) {
-                res1.add(t);
-            }
-            if (t.getType().equals(TicketType.CHEAP)) {
-                res2.add(t);
-            }
-            if (t.getType().equals(TicketType.BUDGETARY)) {
-                res3.add(t);
-            }
+    public ArrayList<String> groupCount() {
+        ArrayList<String> out = new ArrayList<>();
+        Map<TicketType,Long> ticketsByType = tickets.stream().collect(Collectors.groupingBy(Ticket::getType, Collectors.counting()));
+        for (Map.Entry<TicketType,Long> item: ticketsByType.entrySet()){
+            out.add(item.getKey() + "-" + item.getValue());
         }
-        System.out.println(res1);
-        PrintMsg("Number of elements " + "(type - " + TicketType.USUAL + "): " + res1.size());
-
-        System.out.println(res2);
-        PrintMsg("Number of elements " + "(type - " + TicketType.CHEAP + "): " + res2.size());
-
-        System.out.println(res3);
-        PrintMsg("Number of elements " + "(type - " + TicketType.BUDGETARY + "): " + res3.size());
-
+        return out;
     }
 }

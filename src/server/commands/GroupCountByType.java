@@ -2,8 +2,10 @@ package server.commands;
 
 import server.lib.CollectionManager;
 import server.models.Ticket;
+import server.models.TicketType;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class GroupCountByType extends AbstractCommand {
     private final CollectionManager collectionManager;
@@ -16,15 +18,12 @@ public class GroupCountByType extends AbstractCommand {
     /**
      * execute group_count_by_type command
      * @param argument ticket type as string
-     * @param ticket
-     * @param id
      */
 
     @Override
     public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
-        collectionManager.assort();
-        ArrayList<String> groupCommand = new ArrayList<>();
-        groupCommand.add("group_count_by_type executed\n");
+        ArrayList<String> groupCommand = new ArrayList<>(collectionManager.groupCount());
+        groupCommand.add("groupcountbytype executed\n");
         return groupCommand;
     }
 

@@ -17,7 +17,6 @@ import static client.ConsoleManager.PrintMsg;
 import static client.Reader.PrintErr;
 
 public class Executor implements Serializable {
-    Message infoToClient;
     Scanner scanner;
     List<String> script;
 
@@ -103,11 +102,6 @@ public class Executor implements Serializable {
             answer = new Answer(list);
         }
         return answer;
-    }
-
-
-    public Message getInfoToClient() {
-        return infoToClient;
     }
 
     public List<String> getScript() {

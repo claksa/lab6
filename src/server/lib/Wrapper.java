@@ -38,11 +38,6 @@ public class Wrapper implements Serializable {
         return cmd.getId();
     }
 
-    //    важно: доступ только у клиента!
-    String getCommand() {
-        return command;
-    }
-
     public String getArgument() {
         return argument;
     }
