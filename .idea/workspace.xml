@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c4480a7b-0c38-4b1f-81b4-dee83cdcd232" name="Default Changelist" comment="commit suicide">
+    <list default="true" id="c4480a7b-0c38-4b1f-81b4-dee83cdcd232" name="Default Changelist" comment="add fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out.json" beforeDir="false" afterPath="$PROJECT_DIR$/out.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Add.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Add.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/AddMin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/AddMin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Remove.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Remove.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/RemoveLower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/RemoveLower.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Shuffle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Shuffle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/commands/Update.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/commands/Update.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lab6/server/lib/CollectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/lib/CollectionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/lib/FileManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/lib/FileManager$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/lib/FileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/lib/FileManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/server/serverside/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/server/serverside/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/commands/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Add.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/AddMin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/AddMin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Remove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Remove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/RemoveLower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/RemoveLower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/commands/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/commands/Update.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/lib/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/lib/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/lib/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/lib/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/serverside/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/DataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/serverside/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/serverside/ServerConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/serverside/ServerConsole.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +61,13 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/apache-log4j-2.14.1-bin.zip" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager" selected="Application.ClientPoint">
@@ -164,7 +184,7 @@
       <workItem from="1630911429119" duration="65785000" />
       <workItem from="1631120649197" duration="159000" />
       <workItem from="1631120836456" duration="27640000" />
-      <workItem from="1631216496505" duration="96297000" />
+      <workItem from="1631216496505" duration="110704000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1631120411977</created>
@@ -243,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631626611888</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add fixed">
+      <created>1631632558103</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1631632558103</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +297,8 @@
     <MESSAGE value="need to test" />
     <MESSAGE value="added handling of incorrect command" />
     <MESSAGE value="commit suicide" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit suicide" />
+    <MESSAGE value="add fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="add fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

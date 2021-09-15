@@ -21,10 +21,12 @@ public class Add extends AbstractCommand implements Serializable {
         if (collectionManager.getTickets().isEmpty()){
             collectionManager.getTickets().add(ticket);
             addCommand.add("the new item added to the empty collection");
+            collectionManager.sortCollection();
             return addCommand;
         }
         collectionManager.addItem(ticket);
         addCommand.add("the new item has been successfully added to the collection\n");
+        collectionManager.sortCollection();
         return addCommand;
     }
 

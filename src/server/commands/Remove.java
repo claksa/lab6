@@ -23,7 +23,7 @@ public class Remove extends AbstractCommand {
         ArrayList<String> removeCommand = new ArrayList<>();
         try {
             if (argument.trim().isEmpty()) throw new EmptyIOException();
-            if (!collectionManager.isEqualId(id)) throw new NoSuchIdException();
+            if (collectionManager.isEqualId(id)) throw new NoSuchIdException();
         } catch (EmptyIOException e) {
             removeCommand.add("Error: you entered a null-argument");
         } catch (NoSuchIdException e) {

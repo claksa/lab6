@@ -10,25 +10,17 @@ import java.util.stream.Collectors;
 import static client.ConsoleManager.PrintMsg;
 
 public class CollectionManager {
-    private Vector<Ticket> tickets;
+    private List<Ticket> tickets;
     private final FileManager fileManager;
 
-    /**
-     * Constructor
-     * check fields in collection
-     *
-     * @param fileManager to read collection from file
-     */
 
     public CollectionManager(FileManager fileManager) {
         this.fileManager = fileManager;
         this.tickets = fileManager.readData();
+        sortCollection();
         fileManager.checkData(tickets);
     }
 
-    /**
-     * @return information about collection
-     */
 
     public String getInformation() {
         String dataSimpleName = tickets.getClass().getSimpleName();
@@ -45,29 +37,16 @@ public class CollectionManager {
         return String.valueOf(tickets);
     }
 
-    /**
-     * getter for collection that have read from file (i hope)
-     *
-     * @return collection
-     */
 
-    public Vector<Ticket> getTickets() {
+    public List<Ticket> getTickets() {
         return tickets;
     }
 
-    /**
-     * save collection to file
-     */
 
     public void save() {
         fileManager.saveData(tickets);
     }
 
-    /**
-     * alternative getter for id
-     *
-     * @return generated id
-     */
 
     public Integer getID() {
         int maxID = 0;
@@ -80,11 +59,6 @@ public class CollectionManager {
         return maxID + 1;
     }
 
-    /**
-     * change ticket object by id
-     *
-     * @param update ticket object
-     */
 
     public void update(Ticket update) {
         Vector<Ticket> res = new Vector<>();
@@ -97,13 +71,7 @@ public class CollectionManager {
         tickets = res;
     }
 
-    /**
-     * add item to collection
-     * @param ticket object
-     */
-
-
-    public  void addItem(Ticket ticket) {
+    public void addItem(Ticket ticket) {
         System.out.println("ticket object needs to add: " + ticket);
         for (Ticket t : tickets) {
             tickets.add(ticket);
@@ -111,12 +79,6 @@ public class CollectionManager {
             return;
         }
     }
-
-    /**
-     * add new item to collection with min id
-     * @param ticket object
-     */
-
 
     public void addMin(Ticket ticket) {
         for (Ticket t : tickets) {
@@ -128,34 +90,16 @@ public class CollectionManager {
         tickets.add(ticket);
     }
 
-    /**
-     * check id
-     *
-     * @param ID of ticket/venue object
-     * @return boolean value: true if id's are equal to each other
-     */
-
 
     public boolean isEqualId(Integer ID) {
         for (Ticket t : tickets) {
             if (t.getId().equals(ID)) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
-    /**
-     * remove item by id
-     *
-     * @param id id to compare
-     */
-
-    public void removeById(Integer id) {
-        tickets.stream()
-                .filter(t -> t.getId().equals(id))
-                .peek(t -> tickets.remove(t));
-    }
 
     public void remove(Integer id) {
         for (Ticket t : tickets) {
@@ -166,41 +110,20 @@ public class CollectionManager {
         }
     }
 
-
     public boolean removeIfLowerId(Ticket ticket) {
         return tickets.removeIf(ticket1 -> (ticket.getId() > ticket1.getId()));
     }
 
-    /**
-     * find substring in ticket's name (in start)
-     * @param substring to find in field name
-     * @return object with this substring in name
-     */
 
-    public String startsWithSubstring(String substring) {
+    public String startsWithSubstring(String substr) {
         StringBuilder list = new StringBuilder();
-        for (Ticket t : tickets) {
-            if (t.getName().startsWith(substring.trim())) {
-                list.append(t).append("\n");
-            }
-        }
+        tickets.stream().filter((s) -> s.getName().startsWith(substr.trim())).forEach(list::append);
         return list.toString();
     }
 
-    /**
-     * find substring in ticket's name
-     *
-     * @param substring to find in field name
-     * @return object with this substring in name
-     */
-
-    public String containsSomeSubstring(String substring) {
+    public String containsSomeSubstring(String substr) {
         StringBuilder list = new StringBuilder();
-        for (Ticket t : tickets) {
-            if (t.getName().contains(substring.trim())) {
-                list.append(list).append(t).append("\n");
-            }
-        }
+        tickets.stream().filter((s) -> s.getName().contains(substr.trim())).forEach(list::append);
         return list.toString();
     }
 
@@ -208,13 +131,18 @@ public class CollectionManager {
         tickets.clear();
     }
 
-
     public ArrayList<String> groupCount() {
         ArrayList<String> out = new ArrayList<>();
-        Map<TicketType,Long> ticketsByType = tickets.stream().collect(Collectors.groupingBy(Ticket::getType, Collectors.counting()));
-        for (Map.Entry<TicketType,Long> item: ticketsByType.entrySet()){
-            out.add(item.getKey() + "-" + item.getValue());
+        Map<TicketType, Long> ticketsByType = tickets.stream().collect(Collectors.groupingBy(Ticket::getType, Collectors.counting()));
+        for (Map.Entry<TicketType, Long> item : ticketsByType.entrySet()) {
+            out.add(item.getKey() + " -- " + item.getValue());
         }
         return out;
+    }
+
+    public void sortCollection() {
+        if (!tickets.isEmpty()) {
+            tickets = tickets.stream().sorted((Comparator.comparing(o -> o.getVenue().getType()))).collect(Collectors.toList());
+        }
     }
 }

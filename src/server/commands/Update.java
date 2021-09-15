@@ -23,7 +23,7 @@ public class Update extends AbstractCommand {
         try {
             if (argument.trim().equals("")) throw new EmptyIOException();
             id = Integer.parseInt(argument.trim());
-            if (!collectionManager.isEqualId(id)) throw new NoSuchIdException();
+            if (collectionManager.isEqualId(id)) throw new NoSuchIdException();
         } catch (NumberFormatException e) {
             updateCommand.add("Error: you enter not number value");
         } catch (EmptyIOException e) {

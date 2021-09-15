@@ -15,6 +15,7 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Vector;
 
@@ -67,7 +68,7 @@ public class FileManager {
      *
      * @param tickets is a collection to save
      */
-    public void saveData(Vector<Ticket> tickets) {
+    public void saveData(List<Ticket> tickets) {
 
         /*GsonBuilder builder = new GsonBuilder();
         builder.serializeNulls();
@@ -95,7 +96,7 @@ public class FileManager {
      * @param tickets collection<Ticket></Ticket>
      */
 
-    public void checkData(Vector<Ticket> tickets) {
+    public void checkData(List<Ticket> tickets) {
         for (Ticket ticket : tickets) {
             int id = ticket.getId();
             String name = ticket.getName();

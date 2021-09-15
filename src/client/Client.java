@@ -3,6 +3,7 @@ package client;
 import server.commands.Commandable;
 import server.exceptions.NoSuchCommandException;
 import server.lib.CommanderHolder;
+import server.models.Address;
 import server.serverside.Answer;
 
 import java.io.*;

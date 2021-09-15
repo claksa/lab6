@@ -7,10 +7,13 @@ import server.lib.ServerCommands;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ServerConsole implements Runnable {
     List<Commandable> serverList;
     private boolean isSuchCommand = false;
+    private static final Logger log = Logger.getLogger(ServerConsole.class.getName());
 
     public ServerConsole() {
         ServerCommands commands = new ServerCommands();
@@ -20,8 +23,8 @@ public class ServerConsole implements Runnable {
     @Override
     public void run() {
         try (Scanner scanner = new Scanner(System.in)) {
-            String message = "server console started\n" +
-                    "if you want to know about the commands available for execution on the server, enter 'help'\n" +
+            log.info("server console started");
+            String message = "if you want to know about the commands available for execution on the server, enter 'help'\n" +
                     "or you can just wait for client connection";
             System.out.println(message);
             while (Server.running) {
@@ -29,7 +32,8 @@ public class ServerConsole implements Runnable {
                     String enteredCommand = scanner.nextLine();
                     executeServer(enteredCommand);
                 } catch (NoSuchCommandException e) {
-                    Reader.PrintMsg("it is not a command.");
+                    log.log(Level.SEVERE, "it is not a command");
+//                    Reader.PrintMsg("it is not a command.");
                     Server.stop();
                 }
             }

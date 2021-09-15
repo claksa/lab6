@@ -9,11 +9,13 @@ import server.commands.Executor;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.util.*;
+import java.util.logging.Logger;
 
 // объект класса управляет полученными данными от клиента; выполняет полученную команду и сразу отправляет результат
 public class DataManager {
@@ -21,6 +23,7 @@ public class DataManager {
     CommandNet receivedCommand;
     LinkedList<DataHolder> queue = new LinkedList<>();
     SelectionKey key = null;
+    private static final Logger log = Logger.getLogger(DataManager.class.getName());
 
     public void manageData() {
 
@@ -63,7 +66,7 @@ public class DataManager {
         data.setClientAdr(data.channel.receive(data.getBuffer()));
         try {
             receivedCommand = data.getReceivedCommand();
-            System.out.println("Server received CommandNet Object! " + receivedCommand.getEnteredCommand()[0]);
+            log.info("the server received the command from the client: " + receivedCommand.getEnteredCommand()[0]);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -85,6 +88,7 @@ public class DataManager {
             byte[] b = out.toByteArray();
             ByteBuffer buff = ByteBuffer.wrap(b);
             dataHolder.channel.send(buff, dataHolder.getClientAdr());
+            log.info("send answer " + b.length + " bytes");
         }
         if (key != null) {
             key.interestOps(SelectionKey.OP_READ);
