@@ -16,7 +16,6 @@ public class RemoveLower extends AbstractCommand {
     public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         ArrayList<String> removeLowerCommand = new ArrayList<>();
         if (collectionManager.isEqualId(id)) {
-            ticket.setId(id);
             if(collectionManager.removeIfLowerId(ticket)) {
                 removeLowerCommand.add("removed\n");
             } else {

@@ -67,7 +67,6 @@ public class TicketFactory extends Reader {
      */
 
     private Venue getVenueObj() {
-        PrintMsg("Venue ID: " );
 
         String venueName = readString("Enter a venue name:");
         Integer capacity;
@@ -95,6 +94,5 @@ public class TicketFactory extends Reader {
 
         return new Venue(venueName, capacity, venueType, address);
     }
-
 
 }

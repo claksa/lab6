@@ -1,16 +1,18 @@
 package models;
 
+import mainlib.CollectionManager;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 public class Ticket implements Serializable {
-    private  int id;
+    private int id;
     private final String name;
     private final Coordinates coordinates;
     private final LocalDateTime creationDate;
     private final int price;
-    private final TicketType type; //Поле может быть null
-    private final Venue venue; //Поле может быть null
+    private final TicketType type;
+    private final Venue venue;
     private static Integer lastId = 0;
 
     public Ticket(String name,Coordinates coordinates, int price, TicketType type, Venue venue) {
@@ -20,8 +22,21 @@ public class Ticket implements Serializable {
         this.price = price;
         this.type = type;
         this.venue = venue;
-        lastId++;
-        this.id = lastId;
+        this.id = getIncLastId();
+        generateId();
+    }
+
+
+    private void generateId(){
+        for (Integer id: CollectionManager.getIds()) {
+            if (id.equals(this.id)){
+                this.id = getIncLastId(); // криво
+            }
+        }
+    }
+
+    private static Integer getIncLastId(){
+        return ++lastId;
     }
 
 
@@ -33,8 +48,12 @@ public class Ticket implements Serializable {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public static Integer getLastId() {
+        return lastId;
+    }
+
+    public static void setLastId(Integer lastId) {
+        Ticket.lastId = lastId;
     }
 
     public String getName() {

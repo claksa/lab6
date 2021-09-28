@@ -16,8 +16,11 @@ public class AddMin extends AbstractCommand {
     public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         ArrayList<String> addMinCommand = new ArrayList<>();
         if (collectionManager.isEqualId(id)) {
-            collectionManager.addMin(ticket);
-            addMinCommand.add("min item added\n");
+            if (collectionManager.addIfMin(ticket)) {
+                addMinCommand.add("min item added\n");
+            } else {
+                addMinCommand.add("error in adding");
+            }
         } else addMinCommand.add("such an ID already exists, alas");
         return addMinCommand;
     }

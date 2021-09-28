@@ -30,6 +30,7 @@ public class Wrapper implements Serializable {
         return cmd.getTicket();
     }
 
+
     public Integer getWrappedId(CommandNet cmd){
         return cmd.getId();
     }

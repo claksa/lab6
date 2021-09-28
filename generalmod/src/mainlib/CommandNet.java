@@ -6,7 +6,6 @@ import java.io.Serializable;
 import java.util.Scanner;
 
 public class CommandNet implements Serializable {
-    private boolean isNotConnectCommand;
     String[] enteredCommand;
     Ticket ticket;
     Integer id;
@@ -18,9 +17,8 @@ public class CommandNet implements Serializable {
             this.id = ticketFactory.readInteger("Enter an id");
         }
         if (enteredCommand[0].equals("add") | enteredCommand[0].equals("addmin") | enteredCommand[0].equals("update") | enteredCommand[0].equals("removelower")){
-            this.ticket = ticketFactory.getTicketObj(); //работает
+            this.ticket = ticketFactory.getTicketObj();
         }
-        isNotConnectCommand = true;
     }
 
     public String[] getEnteredCommand() {
@@ -33,14 +31,6 @@ public class CommandNet implements Serializable {
 
     public Integer getId() {
         return id;
-    }
-
-    public void setConnectCommand(boolean isNotConnectCommand){
-        this.isNotConnectCommand = isNotConnectCommand;
-    }
-
-    public boolean isNotConnectCommand(){
-        return isNotConnectCommand;
     }
 
 }

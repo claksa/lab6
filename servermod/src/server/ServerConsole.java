@@ -30,14 +30,13 @@ public class ServerConsole implements Runnable {
                 try {
                     String enteredCommand = scanner.nextLine();
 
-                    if (enteredCommand.equals("exit")){
+                    if (enteredCommand.equals("quit")){
                         System.exit(0);
                     }
 
                     executeServer(enteredCommand);
                 } catch (NoSuchCommandException e) {
                     log.log(Level.SEVERE, "it is not a command");
-//                    mainlib.Reader.PrintMsg("it is not a command.");
                     Server.stop();
                 }
             }
@@ -48,7 +47,7 @@ public class ServerConsole implements Runnable {
         StringBuilder res = new StringBuilder(" ");
         if (command.trim().equals("help")) {
             res.append("\nsave - save collection to file\n");
-            res.append("exit - end the server\n");
+            res.append("quit - end the server\n");
             res.append("help - get list about available server commands\n");
             System.out.println(res);
             isSuchCommand = true;

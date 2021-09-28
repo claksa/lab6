@@ -12,7 +12,6 @@ import java.net.SocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 
-// объект класса хранит полученные данные (команды)  от клиента и немножко контролирует подключение
 public class DataHolder {
     public boolean isEstablishedConnection = false;
     private final byte[] b = new byte[65536];

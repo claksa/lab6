@@ -9,17 +9,26 @@ import java.util.stream.Collectors;
 
 
 public class CollectionManager {
-    private List<Ticket> tickets;
+    List<Ticket> tickets;
     private final FileManager fileManager;
+    static List<Integer> ids  = new ArrayList<>();
 
 
     public CollectionManager(FileManager fileManager) {
         this.fileManager = fileManager;
         this.tickets = fileManager.readData();
+        setIdList();
         sortCollection();
         fileManager.checkData(tickets);
     }
 
+    public void setIdList(){
+        ids = tickets.stream().map(Ticket::getId).collect(Collectors.toList());
+    }
+
+    public static List<Integer> getIds() {
+        return ids;
+    }
 
     public String getInformation() {
         String dataSimpleName = tickets.getClass().getSimpleName();
@@ -41,7 +50,6 @@ public class CollectionManager {
         return tickets;
     }
 
-
     public void save() {
         fileManager.saveData(tickets);
     }
@@ -59,34 +67,22 @@ public class CollectionManager {
     }
 
 
-
-    public void update (Ticket update){
+    public void update(Ticket update) {
         tickets = tickets.stream().map(ticket -> ticket.getId().equals(update.getId()) ? update : ticket).collect(Collectors.toCollection(Vector::new));
     }
 
-
-    public void addItem(Ticket ticket) {
-        tickets.add(ticket);
-        System.out.println("added\n");
+    public boolean addItem(Ticket ticket) {
+        return tickets.add(ticket);
     }
 
-    public void addMin(Ticket ticket) {
-        for (Ticket t : tickets) {
-            if (ticket.getId() > t.getId()) {
-                System.out.println("you cannot add\n");
-                return;
-            }
+    public boolean addIfMin(Ticket ticket) {
+        boolean isAdded = false;
+        Integer min = tickets.stream().map(Ticket::getId).reduce(Integer::compareTo).orElse(-1);
+        if (ticket.getId() < min) {
+             isAdded = tickets.add(ticket);
         }
-        tickets.add(ticket);
+        return isAdded;
     }
-
-    public void addIfMin(Ticket ticket){
-        Integer min = tickets.stream().map(Ticket::getId).min(Integer::compareTo).get();
-        if (ticket.getId()<min){
-            tickets.add(ticket);
-        }
-    }
-
 
     public boolean isEqualId(Integer ID) {
         for (Ticket t : tickets) {
