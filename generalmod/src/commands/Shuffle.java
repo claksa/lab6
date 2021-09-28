@@ -22,7 +22,8 @@ public class Shuffle extends AbstractCommand {
     @Override
     public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         ArrayList<String> shuffleCommand = new ArrayList<>();
-        Collections.shuffle(collectionManager.getTickets());
+        collectionManager.shuffle();
+        collectionManager.setNeedToSort(false);
         shuffleCommand.add("shuffled\n");
         return shuffleCommand;
     }

@@ -30,6 +30,7 @@ public class Update extends AbstractCommand {
             updateCommand.add("Error: No such ID in collection");
         }
         collectionManager.update(ticket);
+        collectionManager.setNeedToSort(true);
         updateCommand.add("updated\n");
         return updateCommand;
     }

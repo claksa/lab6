@@ -32,6 +32,7 @@ public class Remove extends AbstractCommand {
         } else {
             removeCommand.add("problems with cmd execution");
         }
+        collectionManager.setNeedToSort(true);
         return removeCommand;
     }
 

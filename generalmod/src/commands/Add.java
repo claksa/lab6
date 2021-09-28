@@ -18,7 +18,7 @@ public class Add extends AbstractCommand implements Serializable {
         ArrayList<String> addCommand = new ArrayList<>();
             if(collectionManager.addItem(ticket)) {
                 addCommand.add("the new item added to the collection\n");
-                collectionManager.sortCollection();
+                collectionManager.setNeedToSort(true);
                 return addCommand;
         } else {
                 addCommand.add(" error in adding");

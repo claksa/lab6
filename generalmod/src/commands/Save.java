@@ -20,6 +20,7 @@ public class Save extends AbstractCommand {
         String message = "saved\n";
         Reader.PrintMsg(message);
         saveCommand.add(message);
+        collectionManager.setNeedToSort(true);
         return saveCommand;
     }
 

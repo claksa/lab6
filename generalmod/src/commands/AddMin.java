@@ -22,6 +22,7 @@ public class AddMin extends AbstractCommand {
                 addMinCommand.add("error in adding");
             }
         } else addMinCommand.add("such an ID already exists, alas");
+        collectionManager.setNeedToSort(true);
         return addMinCommand;
     }
 

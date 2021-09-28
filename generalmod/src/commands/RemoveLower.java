@@ -24,6 +24,7 @@ public class RemoveLower extends AbstractCommand {
         } else {
             removeLowerCommand.add("I can not delete this ID. Please, enter unique");
         }
+        collectionManager.setNeedToSort(true);
         return removeLowerCommand;
     }
 

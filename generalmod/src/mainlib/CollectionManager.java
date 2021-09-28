@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 public class CollectionManager {
     List<Ticket> tickets;
     private final FileManager fileManager;
+    private boolean isNeedToSort = true;
     static List<Integer> ids  = new ArrayList<>();
 
 
@@ -119,18 +120,26 @@ public class CollectionManager {
         tickets.clear();
     }
 
+    public void shuffle(){
+        Collections.shuffle(tickets);
+    }
+
     public ArrayList<String> groupCount() {
         ArrayList<String> out = new ArrayList<>();
         Map<TicketType, Long> ticketsByType = tickets.stream().collect(Collectors.groupingBy(Ticket::getType, Collectors.counting()));
         for (Map.Entry<TicketType, Long> item : ticketsByType.entrySet()) {
-            out.add(item.getKey() + " -- " + item.getValue());
+            out.add(item.getKey() + " - " + item.getValue());
         }
         return out;
     }
 
     public void sortCollection() {
-        if (!tickets.isEmpty()) {
+        if (!tickets.isEmpty() && isNeedToSort) {
             tickets = tickets.stream().sorted((Comparator.comparing(o -> o.getVenue().getType()))).collect(Collectors.toCollection(Vector::new));
         }
+    }
+
+    public void setNeedToSort(boolean needToSort) {
+        isNeedToSort = needToSort;
     }
 }

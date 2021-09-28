@@ -22,6 +22,7 @@ public class GroupCountByType extends AbstractCommand {
     public ArrayList<String> execute(String argument, Ticket ticket, Integer id) {
         ArrayList<String> groupCommand = new ArrayList<>(collectionManager.groupCount());
         groupCommand.add("groupcountbytype executed\n");
+        collectionManager.setNeedToSort(true);
         return groupCommand;
     }
 

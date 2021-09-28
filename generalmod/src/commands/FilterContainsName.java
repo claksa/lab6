@@ -30,6 +30,7 @@ public class FilterContainsName extends AbstractCommand {
             filterContainsCommand.add("Error: no such element\n");
         }
         filterContainsCommand.add("elements are displayed");
+        collectionManager.setNeedToSort(true);
         return filterContainsCommand;
     }
 

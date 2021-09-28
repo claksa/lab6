@@ -29,6 +29,7 @@ public class FilterStartsWithName extends AbstractCommand {
         if (list.isEmpty()) {
             filterStartsCommand.add("Error: no such element");
         }
+        collectionManager.setNeedToSort(true);
         return filterStartsCommand;
     }
 
