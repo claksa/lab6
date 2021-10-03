@@ -78,13 +78,12 @@ public class Ticket implements Serializable {
 
     @Override
     public String toString() {
-        return "\n"+"Ticket"+ "\n" +
-                " { id =" + id + "\n" +
-                "name='" + name + '\'' + "\n" +
-                "coordinates=" + coordinates.toString() + "\n" +
-                "price=" + price + "\n" +
-                "type=" + type + "\n" +
-                "venue=" + venue + "\n" +
-                '}';
+        return "\nTicket: " + "\n" + '[' +
+                "id = " + id + "\n" +
+                "name = " + name  + "\n" +
+                "coordinates = " + coordinates + "\n" +
+                "price = " + price + "\n" +
+                "type = " + type + "\n" +
+                "venue = " + venue + ']';
     }
 }

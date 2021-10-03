@@ -28,10 +28,8 @@ public class Address implements Serializable {
 
     @Override
     public String toString() {
-        return "Address{" +
-                "street='" + street + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                ", town=" + town +
-                '}';
+        return "{ street = " + street +
+                ", zipCode = " + zipCode  +
+                ", town = " + town + '}';
     }
 }

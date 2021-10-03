@@ -41,12 +41,10 @@ public class Venue implements Serializable {
 
     @Override
     public String toString() {
-        return "Venue{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", capacity=" + capacity +
-                ", type=" + type +
-                ", address=" + address.toString() +
-                '}';
+        return "{ id =" + id +
+                ", name = " + name  +
+                ", capacity = " + capacity +
+                ", type = " + type +
+                ", address = " + address + "}";
     }
 }
