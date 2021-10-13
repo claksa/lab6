@@ -1,14 +1,12 @@
 package mainlib;
 
 import commands.Commandable;
-import mainlib.Commander;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class CommanderHolder {
     private static final Commander commander = new Commander();
-    private static final List<Commandable> cmdList = commander.getCommandsList(new FileManager(),new Scanner(System.in));
+    private static final List<Commandable> cmdList = commander.getCommandsList(new FileManager());
 
     public static Commander getCommander() {
         return commander;

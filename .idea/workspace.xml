@@ -9,13 +9,16 @@
   <component name="ChangeListManager">
     <list default="true" id="c4480a7b-0c38-4b1f-81b4-dee83cdcd232" name="Default Changelist" comment="initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generalmod/src/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/generalmod/src/models/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generalmod/src/models/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/generalmod/src/models/Coordinates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generalmod/src/models/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/generalmod/src/models/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generalmod/src/models/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/generalmod/src/models/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generalmod/src/models/TicketType.java" beforeDir="false" afterPath="$PROJECT_DIR$/generalmod/src/models/TicketType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generalmod/src/models/Venue.java" beforeDir="false" afterPath="$PROJECT_DIR$/generalmod/src/models/Venue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out.json" beforeDir="false" afterPath="$PROJECT_DIR$/out.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientmod/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientmod/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generalmod/src/mainlib/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/generalmod/src/mainlib/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generalmod/src/mainlib/Commander.java" beforeDir="false" afterPath="$PROJECT_DIR$/generalmod/src/mainlib/Commander.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generalmod/src/mainlib/CommanderHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/generalmod/src/mainlib/CommanderHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generalmod/src/mainlib/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/generalmod/src/mainlib/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generalmod/src/mainlib/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/generalmod/src/mainlib/Reader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generalmod/src/mainlib/TicketFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/generalmod/src/mainlib/TicketFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servermod/src/server/DataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/servermod/src/server/DataHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servermod/src/server/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/servermod/src/server/DataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servermod/src/server/ReceiveDataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/servermod/src/server/ReceiveDataHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,19 +141,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ServerPoint (1)" />
@@ -190,7 +180,8 @@
       <workItem from="1631793250506" duration="1902000" />
       <workItem from="1631813942436" duration="1651000" />
       <workItem from="1632688504117" duration="31023000" />
-      <workItem from="1632839711327" duration="21723000" />
+      <workItem from="1632839711327" duration="26658000" />
+      <workItem from="1634155773984" duration="384000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1631120411977</created>
@@ -304,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632842804222</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="initial commit">
+      <created>1633276260565</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1633276260565</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

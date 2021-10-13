@@ -47,24 +47,8 @@ public class CollectionManager {
     }
 
 
-    public List<Ticket> getTickets() {
-        return tickets;
-    }
-
     public void save() {
         fileManager.saveData(tickets);
-    }
-
-
-    public Integer getID() {
-        int maxID = 0;
-        for (Ticket t : tickets) {
-            int id = t.getId();
-            if (maxID < id) {
-                maxID = id;
-            }
-        }
-        return maxID + 1;
     }
 
 

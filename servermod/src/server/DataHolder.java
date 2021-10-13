@@ -34,9 +34,6 @@ public class DataHolder {
        return command;
    }
 
-    public boolean isEstablishedConnection() {
-        return isEstablishedConnection;
-    }
 
     public ByteBuffer getBuffer(){
        return buffer;

@@ -32,7 +32,6 @@ public class Client {
         }
     }
 
-    //    стартовая точка входа в программу
     public void run() {
         try {
             while (true) {
@@ -49,11 +48,9 @@ public class Client {
                 String[] message = (line.trim() + " ").split(" ", 2);
                 checkCommand(message);
                 CommandNet cmd = new CommandNet(message);
-//                socket.setSoTimeout(3000);
                 send(cmd);
             }
         } catch (IOException e) {
-//            System.out.println("So, it is IOException (not expectation)");
             e.printStackTrace();
         } catch (NoSuchCommandException e) {
             System.out.println("Error: you entered incorrect command");
@@ -62,7 +59,7 @@ public class Client {
         }
     }
 
-    //   инициализирует работу клиента
+
     public void startClient() {
         if (isStarted) {
             mainlib.Reader.PrintMsg("the client has already connected to server");
@@ -73,7 +70,7 @@ public class Client {
         }
     }
 
-    //    точка создания сокета и начало соединения с сервером
+
     public void connectServer() {
         try {
             mainlib.Reader.PrintMsg("client connected to socket " + socket.toString());
@@ -94,7 +91,7 @@ public class Client {
             commandNetNext = command;
         }
         try (ByteArrayOutputStream out = new ByteArrayOutputStream();
-             ObjectOutputStream oos = new ObjectOutputStream(out);) {
+             ObjectOutputStream oos = new ObjectOutputStream(out)) {
             oos.writeObject(command);
             byte[] sendMessage = out.toByteArray();
             DatagramPacket packet = new DatagramPacket(sendMessage, sendMessage.length, address, 9000);
@@ -103,53 +100,49 @@ public class Client {
         System.out.println("client send command to server");
     }
 
-    //    обработчик ответов(=результаты выполненных команд) от сервера
+
     public void createThreadRespondent() {
-        Thread respondent = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    try {
-                        byte[] receivedMessage = new byte[65536];
-                        DatagramPacket receivedPacket = new DatagramPacket(receivedMessage, receivedMessage.length);
-                        socket.receive(receivedPacket);
-                        byte[] received = receivedPacket.getData();
-                        ByteArrayInputStream in = new ByteArrayInputStream(received);
-                        ObjectInputStream ois = new ObjectInputStream(in);
-                        Answer answer = (Answer) ois.readObject();
-                        if (answer.getAnswer().get(0).equals("connected")) {
-                            isEstablishedConnectionWithServer = true;
-                            mainlib.Reader.PrintMsg("the program was completed at the request of the user");
-                            if (commandNetNext != null) {
-                                System.out.println(" i try to send command [ " + commandNetNext.getEnteredCommand()[0] + " ] again!");
-                                send(commandNetNext);
-                            }
-                        } else {
-                            commandNetNext = null;
+        Thread respondent = new Thread(() -> {
+            while (true) {
+                try {
+                    byte[] receivedMessage = new byte[65536];
+                    DatagramPacket receivedPacket = new DatagramPacket(receivedMessage, receivedMessage.length);
+                    socket.receive(receivedPacket);
+                    byte[] received = receivedPacket.getData();
+                    ByteArrayInputStream in = new ByteArrayInputStream(received);
+                    ObjectInputStream ois = new ObjectInputStream(in);
+                    Answer answer = (Answer) ois.readObject();
+                    if (answer.getAnswer().get(0).equals("connected")) {
+                        isEstablishedConnectionWithServer = true;
+                        Reader.PrintMsg("the program was completed at the request of the user");
+                        if (commandNetNext != null) {
+                            System.out.println(" i try to send command [ " + commandNetNext.getEnteredCommand()[0] + " ] again!");
+                            send(commandNetNext);
                         }
-                        answer.printAnswer();
-                    } catch (PortUnreachableException e) {
-                        try {
-                            mainlib.Reader.PrintMsg("failed to connect to the server :( try after 3 seconds");
-                            Thread.sleep(1000);
-                            System.out.println(".");
-                            Thread.sleep(1000);
-                            System.out.println("..");
-                            Thread.sleep(1000);
-                            System.out.println("...");
-                            connectServer();
-                        } catch (InterruptedException interruptedException) {
-                            mainlib.Reader.PrintMsg(" i want to sleep! Don't interrupt me pls");
-                        }
-                    } catch (ClassNotFoundException e) {
-                        mainlib.Reader.PrintMsg("THIS IS NOT A LEARNING ALARM!! CLASS NOT FOUND FOUND! I REPEAT, NO CLASS.\n" +
-                                "HAPPY DAY CLIENT HURRAY!!!");
-                        break;
-                    } catch (IOException e) {
-                        mainlib.Reader.PrintMsg("you sell me some game. give me a normal IO");
+                    } else {
+                        commandNetNext = null;
                     }
-                    System.out.println("LISTENING: ");
+                    answer.printAnswer();
+                } catch (PortUnreachableException e) {
+                    try {
+                        Reader.PrintMsg("failed to connect to the server :( try after 3 seconds");
+                        Thread.sleep(1000);
+                        System.out.println(".");
+                        Thread.sleep(1000);
+                        System.out.println("..");
+                        Thread.sleep(1000);
+                        System.out.println("...");
+                        connectServer();
+                    } catch (InterruptedException interruptedException) {
+                        //...
+                    }
+                } catch (ClassNotFoundException e) {
+                    Reader.PrintErr("serialization");
+                    break;
+                } catch (IOException e) {
+                    Reader.PrintMsg("receiving/sending data");
                 }
+                System.out.println("LISTENING: ");
             }
         });
         respondent.start();

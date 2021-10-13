@@ -1,6 +1,5 @@
 package mainlib;
 
-import mainlib.Reader;
 import models.*;
 
 import java.util.Scanner;

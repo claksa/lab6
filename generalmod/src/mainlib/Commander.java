@@ -1,11 +1,9 @@
 package mainlib;
 
 import commands.*;
-import mainlib.CollectionManager;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Commander {
     protected List<Commandable> commandsList;
@@ -16,7 +14,7 @@ public class Commander {
         commandsList = new ArrayList<>();
     }
 
-    public List<Commandable> getCommandsList(FileManager fileManager, Scanner scanner){
+    public List<Commandable> getCommandsList(FileManager fileManager){
         collectionManager = new CollectionManager(fileManager);
         commandsList.add(new Add(collectionManager));
         commandsList.add(new AddMin(collectionManager));

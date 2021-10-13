@@ -6,13 +6,11 @@ import java.nio.channels.Selector;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Set;
-import java.util.logging.Logger;
 
 public class DataManager {
     Selector selector;
     static LinkedList<DataHolder> queue = new LinkedList<>();
     static SelectionKey key = null;
-    private static final Logger log = Logger.getLogger(DataManager.class.getName());
 
     public void manageData() {
 

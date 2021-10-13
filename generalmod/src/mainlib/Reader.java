@@ -1,7 +1,5 @@
 package mainlib;
 
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Reader {
@@ -58,17 +56,6 @@ public class Reader {
         return out;
     }
 
-    public Long readLong(String msg) {
-        Long out = null;
-        while (out == null) {
-            PrintMsg(msg);
-            String buffer = scanner.nextLine().trim();
-            if (!buffer.isEmpty()) {
-                out = Long.parseLong(buffer);
-            } else PrintErr("Please, enter a non-null value\n");
-        }
-        return out;
-    }
 
     public Float readFloat(String msg) {
         Float out = null;
@@ -81,27 +68,6 @@ public class Reader {
         }
         return out;
     }
-
-//  it doesn't work...why...too much questions too less answers...
-
-    public ZonedDateTime readDate(String msg) {
-        ZonedDateTime out = null;
-        String dateFormat = "yyyy-MM-dd HH:mm:ss z";
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dateFormat);
-
-        while (out == null) {
-            PrintMsg(msg);
-            PrintMsg("Please, use correct date input format(" + dateFormat + ")");
-            String buffer = scanner.nextLine().trim();
-            if (!buffer.isEmpty()) {
-                out = ZonedDateTime.parse(buffer, formatter);
-            } else
-                PrintErr("Please, enter a non-null value\n");
-
-        }
-        return out;
-    }
-
 
     public <T extends Enum<T>> T readEnumType(Class<T> enumeration, String msg) {
         T out = null;

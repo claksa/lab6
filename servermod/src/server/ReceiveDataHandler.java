@@ -5,7 +5,6 @@ import mainlib.CommandNet;
 import java.io.IOException;
 import java.nio.channels.DatagramChannel;
 import java.nio.channels.SelectionKey;
-import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

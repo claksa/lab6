@@ -20,12 +20,12 @@ import java.util.NoSuchElementException;
 import java.util.Vector;
 
 public class FileManager {
-    public static final String PATH = "out.json";
+//    public static final String PATH = "out.json";
+    public static final String PATH = System.getenv().get("MILKY_WAY");
 
 
     /**
      * the collection to be loaded into the file
-     *
      * @return vector
      */
     public Vector<Ticket> readData() {
